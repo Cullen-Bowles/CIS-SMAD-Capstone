@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication4.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            margin: 0;
+            background: #222;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 800;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #55d6aa;
+        }
+
+            header::after {
+                content: '';
+                display: table;
+                clear: both;
+            }
+
+        .logo {
+            float: left;
+            padding: 10px 0;
+        }
+
+        nav {
+            float: right;
+        }
+
+            nav ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            nav li {
+                display: inline-block;
+                margin-left: 70px;
+                padding-top: 23px;
+                position: relative;
+            }
+
+            nav a {
+                color: #444;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 14px;
+            }
+
+                nav a:hover {
+                    color: #000;
+                }
+
+                nav a::before {
+                    content: '';
+                    display: block;
+                    height: 5px;
+                    background-color: #444;
+                    position: absolute;
+                    top: 0;
+                    width: 0%;
+                    transition: all ease-in-out 250ms;
+                }
+
+                nav a:hover::before {
+                    width: 100%;
+                }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <div class="container">
+                    <h1 class="logo"></h1>
+
+                    <nav>
+                        <ul>
+                            <li><a href="StoryUpload.aspx">Story Upload</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Story Management
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="StoryEntry.aspx">Story Entry</a>
+                                    <a class="dropdown-item" href="StoryUpload.aspx">Story Upload</a>
+                                    <a class="dropdown-item" href="StoryView.aspx">Story View</a>
+                                    <a class="dropdown-item" href="StoryEdit.aspx">Story Edit</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <li><a href="#">Home</a></li>
+
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </header>
+
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>
