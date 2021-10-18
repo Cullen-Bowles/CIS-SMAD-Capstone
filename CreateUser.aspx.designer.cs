@@ -33,6 +33,15 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.TextBox txtfirstname;
 
         /// <summary>
+        /// ExistingUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExistingUser;
+
+        /// <summary>
         /// lbllastname control.
         /// </summary>
         /// <remarks>
@@ -78,31 +87,31 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.Label lblpassword;
 
         /// <summary>
-        /// txtpassworrd control.
+        /// txtpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpassworrd;
+        protected global::System.Web.UI.WebControls.TextBox txtpassword;
 
         /// <summary>
-        /// lblconfirmpass control.
+        /// lblconpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblconfirmpass;
+        protected global::System.Web.UI.WebControls.Label lblconpass;
 
         /// <summary>
-        /// txtconfirmpass control.
+        /// txtconpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtconfirmpass;
+        protected global::System.Web.UI.WebControls.TextBox txtconpassword;
 
         /// <summary>
         /// lblemail control.
@@ -159,12 +168,21 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.TextBox txtreason;
 
         /// <summary>
-        /// btnplaceholder control.
+        /// btncreateuser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnplaceholder;
+        protected global::System.Web.UI.WebControls.Button btncreateuser;
+
+        /// <summary>
+        /// btnclear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnclear;
     }
 }
