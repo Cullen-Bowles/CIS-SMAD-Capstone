@@ -4,38 +4,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="storyFormat">
         <h1>Submit Stories</h1>
-        <asp:Label ID="submitted" runat="server" Text=""></asp:Label>
+        <asp:Label ID="submitted" runat="server" Text="" ForeColor="White"></asp:Label>
         <br />
         <br />
 
-        <asp:Label ID="StoryTitle" runat="server" Text="Story Title:"></asp:Label>
+        <asp:Label ID="StoryTitle" runat="server" Text="Story Title:" ForeColor="White"></asp:Label>
         <asp:TextBox ID="StoryTitleEntry" runat="server" Width="430px" AutoPostBack="true"></asp:TextBox>
-        <asp:Label ID="ExistingStory" runat="server" Text=""></asp:Label>
+        <asp:Label ID="ExistingStory" runat="server" Text="" ForeColor="White"></asp:Label>
         <br />
         <%-- Validators make sure text box is not empty--%>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StoryTitleEntry" ForeColor="DarkRed" Text="Story Title Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StoryTitleEntry" ForeColor="Red" Text="Story Title Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
         <br />
 
         <br />
-        <asp:Label ID="StoryDate" runat="server" Text="Story Submission Date:"></asp:Label>
+        <asp:Label ID="StoryDate" runat="server" Text="Story Submission Date:" ForeColor="White"></asp:Label>
         <asp:TextBox ID="StoryDateEntry" runat="server" Width="353px" AutoPostBack="true" TextMode="Date"></asp:TextBox>
         <br />
         <%-- Validators make sure text box is not empty and is correct data type--%>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StoryDateEntry" ForeColor="DarkRed" Text="Story Date Cannot be blank " BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StoryDateEntry" ForeColor="Red" Text="Story Date Cannot be blank " BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="StoryDateEntry" Text="Story Date must be in mm/dd/yyyy Format" Operator="DataTypeCheck" Type="Date" ForeColor="DarkRed" BorderStyle="Solid" BorderWidth="2px"></asp:CompareValidator>
         <br />
 
         <br />
-        <asp:Label ID="StorySource" runat="server" Text="Story Source:"></asp:Label>
+        <asp:Label ID="StorySource" runat="server" Text="Story Source:" ForeColor="White"></asp:Label>
         <asp:TextBox ID="StorySourceEntry" runat="server" Width="412px" AutoPostBack="true"></asp:TextBox>
         <br />
         <%-- Validators make sure text box is not empty--%>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StorySourceEntry" ForeColor="DarkRed" Text="Story Source Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StorySourceEntry" ForeColor="Red" Text="Story Source Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
         <br />
         <br />
-        <asp:Label ID="StoryText" runat="server" Text="Story Text:"></asp:Label>
+        <asp:Label ID="StoryText" runat="server" Text="Story Text:" ForeColor="White"></asp:Label>
         <%-- Validators make sure text box is not empty--%>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StoryTextEntry" ForeColor="DarkRed" Text="Story Text Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StoryTextEntry" ForeColor="Red" Text="Story Text Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
         <br />
         <asp:TextBox ID="StoryTextEntry" runat="server" Width="500" Height="650" AutoPostBack="true" TextMode="MultiLine" Wrap="True"></asp:TextBox>
         <br />
