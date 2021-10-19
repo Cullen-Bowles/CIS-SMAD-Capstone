@@ -27,10 +27,13 @@ namespace WebApplication4
                 SqlCommand comm = new SqlCommand(sqlQuery, con);
                 comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
                 SqlDataReader srd = comm.ExecuteReader();
-                ddlusersreports.DataSource = srd;
-                ddlusersreports.DataTextField = "StoryTitle";
-                ddlusersreports.DataValueField = "TextID";
-                ddlusersreports.DataBind();
+                if (srd.HasRows)
+                {
+                    ddlusersreports.DataSource = srd;
+                    ddlusersreports.DataTextField = "StoryTitle";
+                    ddlusersreports.DataValueField = "TextID";
+                    ddlusersreports.DataBind();
+                }
                 con.Close();
                 ddlusersreports.Items.Insert(0, new ListItem("Select a Report", "0"));//placeholder for when page is first loaded
                 ddlusersreports.Items[0].Selected = true;

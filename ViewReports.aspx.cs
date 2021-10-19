@@ -21,22 +21,30 @@ namespace WebApplication4
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["StoryAnalyzer"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!Page.IsPostBack)
+            if (Session["Username"] == null)//forces the page back to the sign in page if the user is not signed in
+            {
+                Session["InvalidUsage"] = "Guests cannot access this page, Please sign in";
+                Response.Redirect("Login.aspx");
+            }
+            else if (!Page.IsPostBack)
             {
                 con.Open();
                 String sqlQuery = "SELECT AnalysisNumber, AnalysisTitle FROM AnalysisRecord WHERE UserID = @UserID";
                 SqlCommand comm = new SqlCommand(sqlQuery, con);
                 comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
                 SqlDataReader srd = comm.ExecuteReader();
-                ddlusersreports.DataSource = srd;
-                ddlusersreports.DataTextField = "StoryTitle";
-                ddlusersreports.DataValueField = "TextID";
-                ddlusersreports.DataBind();
+                if (srd.HasRows)
+                {
+                    ddlusersreports.DataSource = srd;
+                    ddlusersreports.DataTextField = "StoryTitle";
+                    ddlusersreports.DataValueField = "TextID";
+                    ddlusersreports.DataBind();
+                }
                 con.Close();
                 ddlusersreports.Items.Insert(0, new ListItem("Select a Report", "0"));//placeholder for when page is first loaded
                 ddlusersreports.Items[0].Selected = true;
                 ddlusersreports.Items[0].Attributes["disabled"] = "disabled";
+
                 // Format the URL. We will use the SA API command "listsaextracts" to see all extracts
                 //  under this particular user.
                 String URL = "http://saworker.storyanalyzer.org/saresults.php?uid=bowlescx@dukes.jmu.edu&request=listsaextracts";
@@ -86,6 +94,44 @@ namespace WebApplication4
             con.Close();
         }
 
-        
+        protected void btnMakeRequest_Click(object sender, EventArgs e) // Rest get to show users what the 3rd party app will return when full connection is established
+        {
+            // Use the selected command from Dr. Mitri's SA REST API
+            // to retrieve results from the SA Server.
+
+            String URL = "http://saworker.storyanalyzer.org/saresults.php?"
+                + ddlSAList.SelectedValue.ToString()
+                + "&request="
+                + ddlRequest.SelectedItem.ToString();
+
+            // Issue the GET command to the SA Server and get the response.
+            var response = hClient.GetStringAsync(new Uri(URL)).Result;
+
+
+            // The response could be plain text for some API commands
+            //  or it could be HTML (to show a visualization)
+            if (ddlRequest.SelectedIndex >= 0 && ddlRequest.SelectedIndex <= 3)
+            {
+                // The result is plain text: A URL for the source for example or story title.
+                txtDisplay.Text = response;
+            }
+            else if (ddlRequest.SelectedItem.ToString().Equals("showbootstrapdashboard"))
+            {
+                // Here the user has selected to show the bootstrap dashboard.
+                // We will open the URL for the dashboard in a new tab.
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('" + URL + "','_newtab');", true);
+                //Response.Redirect(URL);
+            }
+            else
+            {
+                // The results are HRML for a visualization. I'll replace the contents
+                // of a DIV on the ASP.net form with the results
+                // This will dynamically update the HTML page.
+                displayViz.InnerHtml = response;
+            }
+
+        }
+
+
     }
 }
