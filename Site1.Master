@@ -133,6 +133,7 @@
                             </li>
                         </ul>
                     </nav>
+                    Logged in as <asp:Label ID="lblloggedin" runat="server" Text=""></asp:Label>
                 </div>               
             </div>
         </header>
