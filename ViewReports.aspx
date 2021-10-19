@@ -78,7 +78,7 @@
     </aside>
     <br />
     <br />
-    <asp:DropDownList ID="ddlusersreports" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged"></asp:DropDownList>
+    <asp:DropDownList ID="ddlusersreports" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
     <br />
     <br />
     <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: " ForeColor="White"></asp:Label>

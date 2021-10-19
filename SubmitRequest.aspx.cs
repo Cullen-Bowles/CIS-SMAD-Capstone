@@ -34,10 +34,13 @@ namespace WebApplication4
                 SqlCommand comm = new SqlCommand(sqlQuery, con);
                 comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
                 SqlDataReader srd = comm.ExecuteReader();
-                ddlusersstories.DataSource = srd;
-                ddlusersstories.DataTextField = "StoryTitle";
-                ddlusersstories.DataValueField = "TextID";
-                ddlusersstories.DataBind();
+                if (srd.HasRows)
+                {
+                    ddlusersstories.DataSource = srd;
+                    ddlusersstories.DataTextField = "StoryTitle";
+                    ddlusersstories.DataValueField = "TextID";
+                    ddlusersstories.DataBind();
+                }
                 con.Close();
                 ddlusersstories.Items.Insert(0, new ListItem("Select a Story", "0"));//placeholder for when page is first loaded
                 ddlusersstories.Items[0].Selected = true;
@@ -49,25 +52,23 @@ namespace WebApplication4
         protected void ddlusersstories_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            if (!ddlusersstories.SelectedValue.Equals("0"))
-            {
+           
                 con.Open();
-                SqlCommand comm = new SqlCommand("SELECT TextID, StoryTitle, StorySource, StoryText FROM Story WHERE UserID=" + ddlusersstories.SelectedValue, con);
+                SqlCommand comm = new SqlCommand("SELECT TextID, StoryTitle, StorySource, StoryText FROM Story WHERE TextID=" + ddlusersstories.SelectedValue, con);
                 SqlDataReader srd = comm.ExecuteReader();
-                while (srd.Read())
+                if (srd.Read())
                 {
                     Session["TextID"] = srd.GetValue(0);
-                    txtstorytext.Text = srd.GetValue(1).ToString();
-                    //var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());// guarantees that the date being sent to text box is in validation format                   
+                txtstorytile.Text = srd.GetValue(1).ToString();
+                //var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());// guarantees that the date being sent to text box is in validation format                   
                     txtstorysource.Text = srd.GetValue(2).ToString();
-
                     txtstorytext.Text = srd.GetValue(3).ToString();
                 }
                 srd.Close();
                 con.Close();
                 
 
-            }
+            
         }
 
         

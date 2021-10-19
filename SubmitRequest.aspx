@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
-    <asp:DropDownList ID="ddlusersstories" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged"></asp:DropDownList>
+    <asp:DropDownList ID="ddlusersstories" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
     <br />
     <br />
     <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: " ForeColor="White"></asp:Label>
@@ -20,7 +20,9 @@
     <br />
     <br />
     <asp:Label ID="lblstorytext" runat="server" Text="Story Text: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true"></asp:TextBox>
+    <br />
+    <br />
+    <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true" Width="150px" Height="300px" TextMode="MultiLine"></asp:TextBox>
     <br />
     <br />
     <asp:Button ID="btnSubmitRequest" runat="server" Text="Submit Request" OnClick="btnSubmitRequest_Click1" />

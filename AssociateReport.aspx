@@ -5,11 +5,11 @@
     <h1>!!!WORK IN PROGRESS!!!</h1>
     <br />
     <br />
-    <asp:DropDownList ID="ddlsharedreports" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged"></asp:DropDownList>
+    <asp:DropDownList ID="ddlsharedreports" runat="server" <%--OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged"--%>></asp:DropDownList>
     <br />
     <br />
     <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtstorytile" runat="server" ReadOnly="true" "></asp:TextBox>
+    <asp:TextBox ID="txtstorytile" runat="server" ReadOnly="true"></asp:TextBox>
     <br />
     <br />
     <asp:Label ID="lblstorydate" runat="server" Text="Date Submitted: " ForeColor="White"></asp:Label>
