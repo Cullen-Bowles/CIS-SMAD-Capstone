@@ -108,7 +108,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Story Analysis Management</a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Analysis Management</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="SubmitRequest.aspx">Send Request</a>
                                     <a class="dropdown-item" href="ViewReports.aspx">View Completed Requests</a>
@@ -117,7 +117,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Story Analysis Commons</a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Analysis Commons</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="AddAssociate.aspx">Add Analysis Colleagues</a>
                                     <a class="dropdown-item" href="ShareReports.aspx">Share Reports</a>
