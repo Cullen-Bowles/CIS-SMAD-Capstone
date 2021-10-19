@@ -14,14 +14,12 @@ namespace WebApplication4
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["StoryAnalyzer"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["Username"] == null)//forces the page back to the sign in page if the user is not signed in
-            //{
-            //    Session["InvalidUsage"] = "Guests cannot access this page, Please sign in";
-            //    Response.Redirect("CreateUser-Login.aspx");
-            //}
-            //else
-            //{
-            if (!Page.IsPostBack)
+            if (Session["Username"] == null)//forces the page back to the sign in page if the user is not signed in
+            {
+                Session["InvalidUsage"] = "Guests cannot access this page, Please sign in";
+                Response.Redirect("Login.aspx");
+            }
+            else if (!Page.IsPostBack)
             {
                 FillDropDown();
                 if (Session["Username"] == null)
@@ -61,7 +59,7 @@ namespace WebApplication4
                 }
                 con.Close();
             }
-            //}
+            
 
         }
         private void FillDropDown()//fills the dropdown list
@@ -86,6 +84,8 @@ namespace WebApplication4
             StorySourceEntry.ReadOnly = true;
             StoryTextEntry.ReadOnly = true;
         }
+
+
         protected void Confirm_Click(object sender, EventArgs e)//confirms the update of the stories info to sql
         {
             con.Open();
@@ -102,6 +102,24 @@ namespace WebApplication4
                 comm.Parameters.Add(param[3]);
                 comm.ExecuteNonQuery();
             }
+            con.Close();
+        }
+
+        protected void StoriesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            String sqlQuery = "SELECT StoryTitle, StoryDate, StorySource, StoryText FROM Story where TextID = " + StoriesList.SelectedValue;
+            SqlCommand comm = new SqlCommand(sqlQuery, con);
+            SqlDataReader srd = comm.ExecuteReader();
+            while (srd.Read())
+            {
+                StoryTitleEntry.Text = srd.GetValue(0).ToString();
+                var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());
+                StoryDateEntry.Text = storyDateTime.ToShortDateString();
+                StorySourceEntry.Text = srd.GetValue(2).ToString();
+                StoryTextEntry.Text = srd.GetValue(3).ToString();
+            }
+            srd.Close();
             con.Close();
         }
     }

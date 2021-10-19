@@ -87,6 +87,8 @@
 <body>
 
     <form id="form1" runat="server">
+        <%if (Session["Username"] != null)
+            { %>
         <header>
             <div>
                 <div class="container-fluid bcontent">
@@ -136,6 +138,7 @@
                 </div>               
             </div>
         </header>
+        <%} %>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </form>
