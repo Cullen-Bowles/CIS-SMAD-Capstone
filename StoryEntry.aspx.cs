@@ -25,7 +25,7 @@ namespace WebApplication4
             SqlCommand com1 = new SqlCommand(querys, con);
             SqlDataReader srd = com1.ExecuteReader();
             var hasReadValue = srd.Read();
-            var hasStory = false;
+            var hasStory = true;
             if (hasReadValue)//checks if there are stories in the database
             {
                 do
@@ -36,9 +36,17 @@ namespace WebApplication4
                         hasStory = true;//if yes, tells the user and stop the program from being able to submit to db
                         break;
                     }
+                    else
+                    {
+                        hasStory = false;
+                    }
 
                 }
                 while (srd.Read());
+            }
+            else
+            {
+                hasStory = false;
             }
             srd.Close();
             if (!hasStory)//inserts the story into the database
@@ -51,7 +59,7 @@ namespace WebApplication4
                 param[1] = new SqlParameter("@StoryDate", StoryDateEntry.Text);
                 param[2] = new SqlParameter("@StorySource", StorySourceEntry.Text);
                 param[3] = new SqlParameter("@StoryText", StoryTextEntry.Text);
-                param[4] = new SqlParameter("@UserID", Session["UserID"]);
+                param[4] = new SqlParameter("@UserID", (int)Session["UserID"]);
                 comm.Parameters.Add(param[0]);
                 comm.Parameters.Add(param[1]);
                 comm.Parameters.Add(param[2]);
