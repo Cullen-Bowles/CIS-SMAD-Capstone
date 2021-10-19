@@ -54,7 +54,7 @@ namespace WebApplication4
                 Session["InvalidUsage"] = null;
                 if (PasswordHash.ValidatePassword(txtpassword.Text, passHash))
                 {
-                    Response.Redirect("ModifyUser.aspx");
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {

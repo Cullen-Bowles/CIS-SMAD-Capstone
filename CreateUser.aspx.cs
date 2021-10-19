@@ -85,15 +85,21 @@ namespace WebApplication4
                     com3.Parameters.Add(paramPass[2]);
                     com3.ExecuteNonQuery();
                     con2.Close();
-                    Session["Login"] = true;
-                    Session["CreateUser"] = false;
-                    Response.Redirect("CreateUser-Login.aspx");
+                    //Session["Login"] = true;
+                    //Session["CreateUser"] = false;
+                    Response.Redirect("Login.aspx");
                 }
             }
         }
         protected void btnclear_Click(object sender, EventArgs e)
         {
-
+            txtfirstname.Text = "";
+            txtlastname.Text = "";
+            txtpassword.Text = "";
+            txtconpassword.Text = "";
+            txtemail.Text = "";
+            txtorganization.Text = "";
+            txtreason.Text = "";
         }
     }
 }
