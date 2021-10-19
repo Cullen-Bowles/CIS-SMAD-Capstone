@@ -1,0 +1,81 @@
+USE [StoryAnalyzer]
+
+DROP TABLE SharedReports
+DROP TABLE AnalysisCommons
+DROP TABLE AnalysisRecord
+DROP TABLE Story
+
+CREATE TABLE Story (
+	TextID BIGINT PRIMARY KEY IDENTITY,
+	StoryTitle VARCHAR(100) NOT NULL UNIQUE,
+	StoryDate DATE NOT NULL,
+	StorySource VARCHAR(100) NOT NULL,
+	StoryText TEXT NOT NULL,
+	UserID BIGINT
+)
+CREATE TABLE AnalysisRecord (
+	AnalysisNumber BIGINT PRIMARY KEY IDENTITY,
+	UserID BIGINT,	
+	TextID BIGINT REFERENCES Story(TextID),
+	AnalysisTitle VARCHAR(100) NOT NULL,
+	AnalysisDate DATE NOT NULL,
+	AnalysisSource VARCHAR(100) NOT NULL,
+	AnalysisReport TEXT NOT NULL,
+	AnalysisReason TEXT NOT NULL
+)
+
+CREATE TABLE AnalysisCommons(
+	CommonsID BIGINT PRIMARY KEY IDENTITY,
+	UserID BIGINT NOT NULL,
+	SharedUserID BIGINT NOT NULL,
+	SharedUsername VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE SharedReports(
+	SharedReportID BIGINT PRIMARY KEY IDENTITY,
+	UserID BIGINT NOT NULL,
+	SharedUserID BIGINT NOT NULL,
+	AnalysisNumber BIGINT REFERENCES AnalysisRecord(AnalysisNumber)
+)
+
+
+
+INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Animals Recovered from River','2021-05-27','WRIC News','Documenting the information related to an animal rescue that took place back in may. Several domesticated animals were located in a riverbed and show signs of neglect. The organization fears that this may be related to a number of reported mistreatments that have been observed in the local area.',1);
+INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Understanding Roosevelt','2020-11-03','VCU News','An important component of a democratic system is the impact that a government may have on its people during the most extreme and trying of times. It is important to remember a quote from Franklin Delano Roosevelt addressed to the nation, stating "the only thing we have to fear is fear itself".',1);
+INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Report on Wind Damages','2018-01-01','Local Weather','Trendlines show that with equivalent wind levels in the enviornment compared to damage sustained in that timeframe show that wind damages are accounting for an increased expenditure to clients as they suffer the impacts of a changing environment and an Earth showing how warmer times are more dangerous times.',1);
+
+USE [AUTH]
+
+DROP TABLE Pass
+DROP TABLE Person
+
+CREATE TABLE Person(
+UserID int IDENTITY (1,1) NOT NULL,
+FirstName varchar(20) NOT NULL,
+LastName varchar(30) NOT NULL,
+Username varchar (20) NOT NULL,
+Email VARCHAR(100) NOT NULL,
+Organization VARCHAR(50) NOT NULL,
+Reason TEXT NOT NULL
+PRIMARY KEY (UserID));
+
+CREATE TABLE Pass(
+UserID int FOREIGN KEY references Person(UserID) NOT NULL,
+Username varchar(30) NOT NULL,
+PasswordHash varchar(256) NOT NULL,
+PRIMARY KEY (UserID));
+
+INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
+VALUES ('AdminUser', 'cbowles201@gmail.com', 'Cullen', 'Bowles','James Madison University', 'Testing the Story Analyzer Program');
+INSERT INTO Person (Username, Email,FirstName, LastName, Organization, Reason)
+VALUES ('CatDog67', 'si1verArr0w@gmail.com','Duke', 'Wilson', 'Berkley Mid-Atlantic', 'Analyzing insurance reports for fraud');
+INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
+VALUES ('mathrocker', 'k3wlk!dz@gmail.com', 'Kyle', 'Anderson', 'VCU', 'Analyzing quotes for english');
+INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
+VALUES ('Saxmasta387', 'Wildhog10@gmail.com','Braden', 'Slade', 'PETA', 'Analyzing reports on animal abuse for life threatening injuries amongts minor ones');
+
+
+INSERT INTO Pass (UserID, Username, PasswordHash) VALUES ('1', 'AdminUser', '1000:XgjhD/6EKWhGy2nQMMbb6gSLTzXADhU8:Y2XLciB6XT2tbwRv84sI+KlQxUc=');
+INSERT INTO Pass (UserID, Username, PasswordHash) VALUES ('2', 'CatDog67', '1000:A2O8/mAyke8eXvsPk5knHrlpouNs2dNn:K+AVvkD2SD0YxtjPu0w9fstFh+g=');
+INSERT INTO Pass (UserID, Username, PasswordHash) VALUES ('3', 'mathrocker', '1000:NpQJPZYbJd1ZSlptuR3eS68FVd2KcoZD:x6VgSkNGXdVXWTnywjIzHnhx1jM=');
+INSERT INTO Pass (UserID, Username, PasswordHash) VALUES ('4', 'Saxmasta387', '1000:u/wv94600lRCXy42QgFebnk1lKV+dtP+:kIQY5eko3tnD8gYXFQkKfDcamvw=');
