@@ -11,7 +11,11 @@ namespace WebApplication4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Username"] == null)//forces the page back to the sign in page if the user is not signed in
+            {
+                Session["InvalidUsage"] = "Guests cannot access this page, Please sign in";
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }
