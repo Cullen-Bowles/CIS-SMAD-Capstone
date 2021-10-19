@@ -1,9 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="StoryEntry.aspx.cs" Inherits="WebApplication4.StoryEntry" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        h1{
+            color: white;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="storyFormat">
-        <h1>Submit Stories</h1>
+        <h1 color="white">Submit Stories</h1>
         <asp:Label ID="submitted" runat="server" Text="" ForeColor="White"></asp:Label>
         <br />
         <br />

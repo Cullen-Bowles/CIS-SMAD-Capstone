@@ -40,7 +40,7 @@ namespace WebApplication4
             SqlCommand loginCommand = new SqlCommand();
             loginCommand.Connection = con2;
             loginCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            loginCommand.CommandText = "sp_JeremyEzellLab3";
+            loginCommand.CommandText = "sp_UserLogin";
             loginCommand.Parameters.AddWithValue("@Username", txtusername.Text);
 
             con2.Open();
