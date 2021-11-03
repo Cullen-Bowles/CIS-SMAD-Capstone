@@ -27,7 +27,6 @@ CREATE TABLE AnalysisRecord (
 CREATE TABLE AnalysisCommons(
 	CommonsID BIGINT PRIMARY KEY IDENTITY,
 	UserID BIGINT NOT NULL,
-	SharedUserID BIGINT NOT NULL,
 	SharedUsername VARCHAR(100) NOT NULL
 )
 
