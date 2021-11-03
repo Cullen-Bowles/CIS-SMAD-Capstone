@@ -15,57 +15,57 @@ namespace WebApplication4
     {
 
         /// <summary>
-        /// txtsearch control.
+        /// txtSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsearch;
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
-        /// lblstatus control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblstatus;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
 
         /// <summary>
-        /// btnsearch control.
+        /// lblusername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsearch;
+        protected global::System.Web.UI.WebControls.Label lblusername;
 
         /// <summary>
-        /// ddlCommonsAssociates control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCommonsAssociates;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// btndelete control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btndelete;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// lbldelete control.
+        /// lblAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbldelete;
+        protected global::System.Web.UI.WebControls.Label lblAdd;
     }
 }
