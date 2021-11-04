@@ -27,6 +27,7 @@ CREATE TABLE AnalysisRecord (
 CREATE TABLE AnalysisCommons(
 	CommonsID BIGINT PRIMARY KEY IDENTITY,
 	UserID BIGINT NOT NULL,
+	SharedUserID BIGINT NOT NULL,
 	SharedUsername VARCHAR(100) NOT NULL
 )
 
@@ -47,6 +48,7 @@ USE [AUTH]
 
 DROP TABLE Pass
 DROP TABLE Person
+DROP TABLE Messenger
 
 CREATE TABLE Person(
 UserID int IDENTITY (1,1) NOT NULL,
@@ -63,6 +65,16 @@ UserID int FOREIGN KEY references Person(UserID) NOT NULL,
 Username varchar(30) NOT NULL,
 PasswordHash varchar(256) NOT NULL,
 PRIMARY KEY (UserID));
+
+CREATE TABLE Messenger(
+ID BIGINT PRIMARY KEY IDENTITY,
+Body NVARCHAR(MAX) NOT NULL,
+Created DATETIME NOT NULL,
+CreatedBy BIGINT NOT NULL,
+ToUserID BIGINT NOT NULL,
+IsRead BIT NOT NULL,
+DateRead DATETIME,
+CreatedByUsername VARCHAR(20));
 
 INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
 VALUES ('AdminUser', 'cbowles201@gmail.com', 'Cullen', 'Bowles','James Madison University', 'Testing the Story Analyzer Program');
