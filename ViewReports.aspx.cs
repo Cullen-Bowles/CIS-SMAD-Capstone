@@ -19,6 +19,7 @@ namespace WebApplication4
     {
         HttpClient hClient = new HttpClient();
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["StoryAnalyzer"].ConnectionString);
+        SqlConnection con2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Username"] == null)//forces the page back to the sign in page if the user is not signed in
@@ -45,9 +46,20 @@ namespace WebApplication4
                 ddlusersreports.Items[0].Selected = true;
                 ddlusersreports.Items[0].Attributes["disabled"] = "disabled";
 
+                con2.Open();
+                String email = "SELECT Email FROM Person WHERE UserID = @UserID";
+                SqlCommand com1 = new SqlCommand(email, con2);
+                com1.Parameters.AddWithValue("@UserID", Session["UserID"]);
+                SqlDataReader src = com1.ExecuteReader();
+                if (src.Read())
+                {
+                    Session["email"] = src.GetValue(0).ToString();
+                }
+                con2.Close();
+
                 // Format the URL. We will use the SA API command "listsaextracts" to see all extracts
                 //  under this particular user.
-                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid=bowlescx@dukes.jmu.edu&request=listsaextracts";
+                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid="+Session["email"].ToString()+"&request=listsaextracts";
 
                 // Issue a GET request and get the results from the server.
                 var response = hClient.GetStringAsync(new Uri(URL)).Result;
@@ -96,6 +108,8 @@ namespace WebApplication4
 
         protected void btnMakeRequest_Click(object sender, EventArgs e) // Rest get to show users what the 3rd party app will return when full connection is established
         {
+
+            
             // Use the selected command from Dr. Mitri's SA REST API
             // to retrieve results from the SA Server.
 

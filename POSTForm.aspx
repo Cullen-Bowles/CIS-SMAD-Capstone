@@ -1,32 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="SubmitRequest.aspx.cs" Inherits="WebApplication4.SubmitRequest" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br />
-    <br />
-    <asp:DropDownList ID="ddlusersstories" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-    <br />
-    <br />
-    <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtstorytile" runat="server" ReadOnly="true"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="lblstorydate" runat="server" Text="Story Date: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtsubmissiondate" runat="server" TextMode="Date"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="lblstorysource" runat="server" Text="Story Source: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtstorysource" runat="server" ReadOnly="true"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="lblstorytext" runat="server" Text="Story Text: " ForeColor="White"></asp:Label>
-    <br />
-    <br />
-    <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true" Width="150px" Height="300px" TextMode="MultiLine"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Button ID="btnSubmitRequest" runat="server" Text="Submit Request" OnClick="btnSubmitRequest_Click1" />
-    <div>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="POSTForm.aspx.cs" Inherits="InClassWebApp.POSTForm" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
             <asp:Label ID="lblAnalysis" runat="server" Text="Choose Analysis:"></asp:Label>
             &nbsp;&nbsp;
             <asp:DropDownList ID="ddlExtracts" runat="server"></asp:DropDownList>
@@ -43,11 +25,6 @@
             <br />
             <strong>Upload a New Story (Select 'saextract' from the list above):
             </strong>
-            <br />
-            <br />
-            <asp:Label ID="lblemail" runat="server" Text="User Email:"></asp:Label>
-            &nbsp;&nbsp;
-            <asp:TextBox ID="txtEmail" runat="server" Width="200" ReadOnly="true"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblTitle" runat="server" Text="Story Title:"></asp:Label>
@@ -68,4 +45,6 @@
             <br />
             <asp:Label ID="lblPostResponseMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" Font-Size="X-Large"></asp:Label>
         </div>
-</asp:Content>
+    </form>
+</body>
+</html>
