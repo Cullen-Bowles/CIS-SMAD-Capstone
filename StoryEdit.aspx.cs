@@ -70,7 +70,7 @@ namespace WebApplication4
             con.Open();
             String sqlQuery = "SELECT TextID, StoryTitle FROM Story WHERE UserID = @UserID";
             SqlCommand comm = new SqlCommand(sqlQuery, con);
-            comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
+            comm.Parameters.AddWithValue("@UserID", Session["UserID"]);
             SqlDataReader srd = comm.ExecuteReader();
             StoriesList.DataSource = srd;
             StoriesList.DataTextField = "StoryTitle";

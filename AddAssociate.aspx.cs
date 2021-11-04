@@ -82,6 +82,7 @@ namespace WebApplication4
                     while (dr.Read())
                     {
                         lblusername.Text = dr["Username"].ToString();
+                        Session["SharedUserID"] = dr.GetValue(0);
                     }
                 }
 
@@ -98,10 +99,11 @@ namespace WebApplication4
                 if (val3 != 1)
                 {
                     
-                    String query = ("INSERT into AnalysisCommons (UserID, SharedUsername) VALUES (@UserID, @SharedUsername)");
+                    String query = ("INSERT into AnalysisCommons (UserID, SharedUserID, SharedUsername) VALUES (@UserID, @SharedUserID, @SharedUsername)");
                     SqlCommand cmd = new SqlCommand(query, sqlConnect1);
 
                     cmd.Parameters.AddWithValue("@UserID", Session["UserID"].ToString());
+                    cmd.Parameters.AddWithValue("@SharedUserID", Session["SharedUserID"]);
                     cmd.Parameters.AddWithValue("@SharedUsername", lblusername.Text.ToString());
                     cmd.ExecuteNonQuery();
 
