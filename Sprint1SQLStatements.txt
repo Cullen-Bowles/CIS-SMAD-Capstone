@@ -57,6 +57,7 @@ LastName varchar(30) NOT NULL,
 Username varchar (20) NOT NULL,
 Email VARCHAR(100) NOT NULL,
 Organization VARCHAR(50) NOT NULL,
+Photo VARBINARY (max),
 Reason TEXT NOT NULL
 PRIMARY KEY (UserID));
 
