@@ -31,24 +31,34 @@ namespace WebApplication4
             }
             else if (!Page.IsPostBack)
             {
-                con.Open();
-                String sqlQuery = "SELECT TextID, StoryTitle FROM Story WHERE UserID = @UserID";
-                SqlCommand comm = new SqlCommand(sqlQuery, con);
-                comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
-                SqlDataReader srd = comm.ExecuteReader();
-                if (srd.HasRows)
+                con2.Open();
+                String email = "SELECT Email FROM Person WHERE UserID = @UserID";
+                SqlCommand com1 = new SqlCommand(email, con2);
+                com1.Parameters.AddWithValue("@UserID", Session["UserID"]);
+                SqlDataReader src = com1.ExecuteReader();
+                if (src.Read())
                 {
-                    ddlusersstories.DataSource = srd;
-                    ddlusersstories.DataTextField = "StoryTitle";
-                    ddlusersstories.DataValueField = "TextID";
-                    ddlusersstories.DataBind();
+                    txtEmail.Text = src.GetValue(0).ToString();
                 }
-                con.Close();
-                ddlusersstories.Items.Insert(0, new ListItem("Select a Story", "0"));//placeholder for when page is first loaded
-                ddlusersstories.Items[0].Selected = true;
-                ddlusersstories.Items[0].Attributes["disabled"] = "disabled";
+                con2.Close();
+                //con.Open();
+                //String sqlQuery = "SELECT TextID, StoryTitle FROM Story WHERE UserID = @UserID";
+                //SqlCommand comm = new SqlCommand(sqlQuery, con);
+                //comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
+                //SqlDataReader srd = comm.ExecuteReader();
+                //if (srd.HasRows)
+                //{
+                //    ddlusersstories.DataSource = srd;
+                //    ddlusersstories.DataTextField = "StoryTitle";
+                //    ddlusersstories.DataValueField = "TextID";
+                //    ddlusersstories.DataBind();
+                //}
+                //con.Close();
+                //ddlusersstories.Items.Insert(0, new ListItem("Select a Story", "0"));//placeholder for when page is first loaded
+                //ddlusersstories.Items[0].Selected = true;
+                //ddlusersstories.Items[0].Attributes["disabled"] = "disabled";
 
-                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid=ezelljd@jmu.edu&request=listsaextracts";
+                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid="+txtEmail.Text+"request=listsaextracts";
 
                 var response = hClient.GetStringAsync(new Uri(URL)).Result;
 
@@ -76,61 +86,52 @@ namespace WebApplication4
 
         protected void ddlusersstories_SelectedIndexChanged(object sender, EventArgs e)
         {                     
-                con.Open();
-                SqlCommand comm = new SqlCommand("SELECT TextID, StoryTitle, StorySource, StoryText FROM Story WHERE TextID=" + ddlusersstories.SelectedValue, con);
-                SqlDataReader srd = comm.ExecuteReader();
-                if (srd.Read())
-                {
-                    Session["TextID"] = srd.GetValue(0);
-                    txtstorytile.Text = srd.GetValue(1).ToString();
-                //var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());// guarantees that the date being sent to text box is in validation format                   
-                    txtstorysource.Text = srd.GetValue(2).ToString();
-                    txtstorytext.Text = srd.GetValue(3).ToString();
-                    txtTitle.Text = srd.GetValue(1).ToString();
-                    txtURL.Text = srd.GetValue(2).ToString();
-                    txtStory.Text = srd.GetValue(3).ToString();
-                }
-                srd.Close();
-                con.Close();
-            con2.Open();
-            String email = "SELECT Email FROM Person WHERE UserID = @UserID";
-            SqlCommand com1 = new SqlCommand(email, con2);
-            com1.Parameters.AddWithValue("@UserID", Session["UserID"]);
-            SqlDataReader src = com1.ExecuteReader();
-            if (src.Read())
-            {
-                txtEmail.Text = src.GetValue(0).ToString();
-            }
-            con2.Close();
+                //con.Open();
+                //SqlCommand comm = new SqlCommand("SELECT TextID, StoryTitle, StorySource, StoryText FROM Story WHERE TextID=" + ddlusersstories.SelectedValue, con);
+                //SqlDataReader srd = comm.ExecuteReader();
+                //if (srd.Read())
+                //{
+                //    Session["TextID"] = srd.GetValue(0);
+                //    txtstorytile.Text = srd.GetValue(1).ToString();
+                ////var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());// guarantees that the date being sent to text box is in validation format                   
+                //    txtstorysource.Text = srd.GetValue(2).ToString();
+                //    txtstorytext.Text = srd.GetValue(3).ToString();
+                //    txtTitle.Text = srd.GetValue(1).ToString();
+                //    txtURL.Text = srd.GetValue(2).ToString();
+                //    txtStory.Text = srd.GetValue(3).ToString();
+                //}
+                //srd.Close();
+                //con.Close();
+            
             
 
         }
 
         
 
-        protected void btnSubmitRequest_Click1(object sender, EventArgs e)
-        {
-            con.Open();
-            string requestInsert = "INSERT INTO AnalysisRecord (UserID, TextID, AnalysisTitle, AnalysisDate, AnalysisSource, AnalysisRecord, AnalysisReason) VALUES (@UserID, @TextID, @AnalysisTitle, @AnalysisDate, @AnalysisSource, @AnlysisReport, @AnalysisReason)";
-            SqlCommand comm = new SqlCommand(requestInsert, con);
-            SqlParameter[] param = new SqlParameter[7];
-            param[0] = new SqlParameter("@UserID", (int)Session["UserID"]);
-            param[1] = new SqlParameter("@TextID", (int)Session["TextID"]);
-            param[2] = new SqlParameter("@AnalysisTitle", txtstorytile.Text);
-            param[3] = new SqlParameter("@AnalysisDate", txtsubmissiondate.Text);
-            param[4] = new SqlParameter("@AnalysisSource", txtstorysource.Text);
-            param[5] = new SqlParameter("@AnalysisRecord", "This is a placehold, functionality to be added soon");
-            param[6] = new SqlParameter("@AnalysisReason", "Placeholder for database");
-            comm.Parameters.Add(param[0]);
-            comm.Parameters.Add(param[1]);
-            comm.Parameters.Add(param[2]);
-            comm.Parameters.Add(param[3]);
-            comm.Parameters.Add(param[4]);
-            comm.Parameters.Add(param[5]);
-            comm.Parameters.Add(param[6]);
-            comm.ExecuteNonQuery();
-            con.Close();
-        }
+        //protected void btnSubmitRequest_Click1(object sender, EventArgs e)
+        //{
+        //    con.Open();
+        //    string requestInsert = "INSERT INTO AnalysisRecord (UserID, TextID, AnalysisTitle, AnalysisDate, AnalysisSource, AnalysisRecord, AnalysisReason) VALUES (@UserID, @TextID, @AnalysisTitle, @AnalysisDate, @AnalysisSource, @AnlysisReport, @AnalysisReason)";
+        //    SqlCommand comm = new SqlCommand(requestInsert, con);
+        //    SqlParameter[] param = new SqlParameter[7];
+        //    param[0] = new SqlParameter("@UserID", (int)Session["UserID"]);
+        //    param[1] = new SqlParameter("@TextID", (int)Session["TextID"]);
+        //    param[2] = new SqlParameter("@AnalysisTitle", txtstorytile.Text);
+        //    param[3] = new SqlParameter("@AnalysisDate", txtsubmissiondate.Text);
+        //    param[4] = new SqlParameter("@AnalysisSource", txtstorysource.Text);
+        //    param[5] = new SqlParameter("@AnalysisRecord", "This is a placehold, functionality to be added soon");
+        //    param[6] = new SqlParameter("@AnalysisReason", "Placeholder for database");
+        //    comm.Parameters.Add(param[0]);
+        //    comm.Parameters.Add(param[1]);
+        //    comm.Parameters.Add(param[2]);
+        //    comm.Parameters.Add(param[3]);
+        //    comm.Parameters.Add(param[4]);
+        //    comm.Parameters.Add(param[5]);
+        //    comm.Parameters.Add(param[6]);
+        //    comm.ExecuteNonQuery();
+        //    con.Close();
+        //}
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             
@@ -189,7 +190,8 @@ namespace WebApplication4
             // A status code of OK and/or 200 are good! You should research the HTTP POST response codes
             // so that you can use logic to print the appropriate result to the user.
             var responseString = response.Result.StatusCode;
-            lblPostResponseMessage.Text += responseString.ToString() + " " + response.Result.ToString();
+            //lblPostResponseMessage.Text += responseString.ToString() + " " + response.Result.ToString();
+            lblPostResponseMessage.Text = "Request has been sent. Check view reports in a few minutes to view the report.";
 
 
         }
