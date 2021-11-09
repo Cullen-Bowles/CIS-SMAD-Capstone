@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="SubmitRequest.aspx.cs" Inherits="WebApplication4.SubmitRequest" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br />
+    <%--<br />
     <br />
     <asp:DropDownList ID="ddlusersstories" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
     <br />
@@ -25,12 +26,14 @@
     <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true" Width="150px" Height="300px" TextMode="MultiLine"></asp:TextBox>
     <br />
     <br />
-    <asp:Button ID="btnSubmitRequest" runat="server" Text="Submit Request" OnClick="btnSubmitRequest_Click1" />
-    <div>
+    <asp:Button ID="btnSubmitRequest" runat="server" Text="Submit Request" OnClick="btnSubmitRequest_Click1" />--%>
+    <div class="card">
+        <div class="card-body">
             <asp:Label ID="lblAnalysis" runat="server" Text="Choose Analysis:"></asp:Label>
             &nbsp;&nbsp;
             <asp:DropDownList ID="ddlExtracts" runat="server"></asp:DropDownList>
-            <br /><br />
+            <br />
+            <br />
             <asp:Label ID="lblCommand" runat="server" Text="Choose POST Command:"></asp:Label>
             &nbsp;&nbsp;
             <asp:DropDownList ID="ddlCommands" runat="server">
@@ -58,7 +61,8 @@
             <asp:Label ID="lblURL" runat="server" Text="Story Source (URL):"></asp:Label>
             &nbsp;&nbsp;
             <asp:TextBox ID="txtURL" runat="server" Width="300"></asp:TextBox>
-            <br /><br />
+            <br />
+            <br />
             <asp:Label ID="lblStoryBody" runat="server" Text="Body of Story Text:"></asp:Label>
             <br />
             <asp:TextBox ID="txtStory" runat="server" TextMode="MultiLine" Width="600" Height="200"></asp:TextBox>
@@ -68,4 +72,5 @@
             <br />
             <asp:Label ID="lblPostResponseMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" Font-Size="X-Large"></asp:Label>
         </div>
+    </div>
 </asp:Content>

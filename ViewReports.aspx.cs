@@ -19,6 +19,7 @@ namespace WebApplication4
     {
         HttpClient hClient = new HttpClient();
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["StoryAnalyzer"].ConnectionString);
+        SqlConnection con2 = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Username"] == null)//forces the page back to the sign in page if the user is not signed in
@@ -28,26 +29,36 @@ namespace WebApplication4
             }
             else if (!Page.IsPostBack)
             {
-                con.Open();
-                String sqlQuery = "SELECT AnalysisNumber, AnalysisTitle FROM AnalysisRecord WHERE UserID = @UserID";
-                SqlCommand comm = new SqlCommand(sqlQuery, con);
-                comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
-                SqlDataReader srd = comm.ExecuteReader();
-                if (srd.HasRows)
+                con2.Open();
+                String email = "SELECT Email FROM Person WHERE UserID = @UserID";
+                SqlCommand com1 = new SqlCommand(email, con2);
+                com1.Parameters.AddWithValue("@UserID", Session["UserID"]);
+                SqlDataReader src = com1.ExecuteReader();
+                if (src.Read())
                 {
-                    ddlusersreports.DataSource = srd;
-                    ddlusersreports.DataTextField = "StoryTitle";
-                    ddlusersreports.DataValueField = "TextID";
-                    ddlusersreports.DataBind();
+                    txtEmail.Text = src.GetValue(0).ToString();
                 }
-                con.Close();
-                ddlusersreports.Items.Insert(0, new ListItem("Select a Report", "0"));//placeholder for when page is first loaded
-                ddlusersreports.Items[0].Selected = true;
-                ddlusersreports.Items[0].Attributes["disabled"] = "disabled";
+                con2.Close();
+                //con.Open();
+                //String sqlQuery = "SELECT AnalysisNumber, AnalysisTitle FROM AnalysisRecord WHERE UserID = @UserID";
+                //SqlCommand comm = new SqlCommand(sqlQuery, con);
+                //comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
+                //SqlDataReader srd = comm.ExecuteReader();
+                //if (srd.HasRows)
+                //{
+                //    ddlusersreports.DataSource = srd;
+                //    ddlusersreports.DataTextField = "StoryTitle";
+                //    ddlusersreports.DataValueField = "TextID";
+                //    ddlusersreports.DataBind();
+                //}
+                //con.Close();
+                //ddlusersreports.Items.Insert(0, new ListItem("Select a Report", "0"));//placeholder for when page is first loaded
+                //ddlusersreports.Items[0].Selected = true;
+                //ddlusersreports.Items[0].Attributes["disabled"] = "disabled";
 
                 // Format the URL. We will use the SA API command "listsaextracts" to see all extracts
                 //  under this particular user.
-                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid=bowlescx@dukes.jmu.edu&request=listsaextracts";
+                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid="+txtEmail.Text+"&request=listsaextracts";
 
                 // Issue a GET request and get the results from the server.
                 var response = hClient.GetStringAsync(new Uri(URL)).Result;
@@ -78,21 +89,21 @@ namespace WebApplication4
 
         }
 
-        protected void ddlusersstories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            con.Open();
-            string getReport = "SELECT AnalysisTitle, AnalysisDate, AnalysisSource, AnalysisReport FROM AnalysisRecord WHERE AnalysisNumber="+ddlusersreports.SelectedValue;
-            SqlCommand comm = new SqlCommand(getReport, con);
-            SqlDataReader src = comm.ExecuteReader();
-            if(src.Read())
-            {
-                txtstorytext.Text = src.GetValue(0).ToString();
-                txtsubmissiondate.Text = src.GetValue(1).ToString();
-                txtstorysource.Text = src.GetValue(2).ToString();
-                txtstorytext.Text = src.GetValue(3).ToString();
-            }
-            con.Close();
-        }
+        //protected void ddlusersstories_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    con.Open();
+        //    string getReport = "SELECT AnalysisTitle, AnalysisDate, AnalysisSource, AnalysisReport FROM AnalysisRecord WHERE AnalysisNumber="+ddlusersreports.SelectedValue;
+        //    SqlCommand comm = new SqlCommand(getReport, con);
+        //    SqlDataReader src = comm.ExecuteReader();
+        //    if(src.Read())
+        //    {
+        //        txtstorytext.Text = src.GetValue(0).ToString();
+        //        txtsubmissiondate.Text = src.GetValue(1).ToString();
+        //        txtstorysource.Text = src.GetValue(2).ToString();
+        //        txtstorytext.Text = src.GetValue(3).ToString();
+        //    }
+        //    con.Close();
+        //}
 
         protected void btnMakeRequest_Click(object sender, EventArgs e) // Rest get to show users what the 3rd party app will return when full connection is established
         {

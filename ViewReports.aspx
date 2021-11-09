@@ -45,10 +45,17 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <aside>
+    <div class="card">
         <%--<form id="form1" runat="server">--%>
-        <div>
-            <h2>Example of a returned analysis from the 3rd Party app</h2>
+        <div class="card-body">
+            <h2>View Your Report</h2>
+            <br />
+            <br />
+            <asp:Label ID="lblemail" runat="server" Text="User Email:"></asp:Label>
+            &nbsp;&nbsp;
+            <asp:TextBox ID="txtEmail" runat="server" Width="200" ReadOnly="true"></asp:TextBox>
+            <br />
+            <br />
             <asp:Label ID="lblSelectAnalysis" runat="server" Text="SelectAnalysis"></asp:Label>
             <asp:DropDownList ID="ddlSAList" runat="server"></asp:DropDownList>
             <asp:Label ID="lblRequests" runat="server" Text="Choose Request:"></asp:Label>
@@ -75,8 +82,8 @@
         </div>
         <div runat="server" id="displayViz"></div>
         <%--</form>--%>
-    </aside>
-    <br />
+    </div>
+    <%--<br />
     <br />
     <asp:DropDownList ID="ddlusersreports" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
     <br />
@@ -96,6 +103,6 @@
     <asp:Label ID="lblstorytext" runat="server" Text="Report: " ForeColor="White"></asp:Label>
     <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true"></asp:TextBox>
     <br />
-    <br />
+    <br />--%>
     
 </asp:Content>
