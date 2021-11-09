@@ -24,6 +24,15 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.DropDownList StoriesList;
 
         /// <summary>
+        /// LoggedIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LoggedIn;
+
+        /// <summary>
         /// StoryTitle control.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,22 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.TextBox StoryTitleEntry;
 
         /// <summary>
-        /// LoggedIn control.
+        /// ExistingStory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LoggedIn;
+        protected global::System.Web.UI.WebControls.Label ExistingStory;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// StoryDate control.
@@ -123,15 +141,6 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.Label StoryText;
 
         /// <summary>
-        /// RequiredFieldValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-
-        /// <summary>
         /// StoryTextEntry control.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace WebApplication4
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StoryTextEntry;
+
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
         /// Confirm control.

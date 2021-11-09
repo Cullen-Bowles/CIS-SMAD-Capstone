@@ -73,13 +73,12 @@
                                     <a class="dropdown-item" href="Messenger.aspx">Messages</a>  <!-- TODO: optionally add message page link here too -->
                                     <a class="dropdown-item" href="ManageUser.aspx">Manage</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Log out</a>
+                                    <a class="dropdown-item" href="Login.aspx">Log out</a>
                                 </div>
                             </li>
-
                         </ul>
                         <ul class="navbar-nav flex-grow-1">
-                            <li><a runat="server" class="nav-link" href="~/">Home</a></li>
+                            <li><a runat="server" class="nav-link" href="Home.aspx">Home</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Story Management</a>
                                 <div class="dropdown-menu">
