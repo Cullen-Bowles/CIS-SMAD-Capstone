@@ -1,6 +1,6 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 51px;
+    padding-top: 1px;
     padding-bottom: 20px;
 }
 
@@ -18,6 +18,75 @@ textarea {
     max-width: 280px;
 }
 
+.bg-jmu {
+    background-color: #663366;
+    background-image: url("Images/teartop.png");
+    /* Center and scale the image nicely */
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+.navbar-jmu {
+    color: #ffcc00;
+}
+
+.nav-link {
+    color: #ffcc00;
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover, .nav-link:focus {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-link.disabled {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ffffff !important;
+}
+
+.dropdown.no-arrow .dropdown-toggle::after {
+    display: none;
+}
+
+.topbar .nav-item .nav-link .badge-counter {
+    position: absolute;
+    transform: scale(0.7);
+    transform-origin: top right;
+    right: .25rem;
+    margin-top: -.25rem;
+}
+
+.navbar-brand {
+    color: #ffcc00;
+}
+
+    .navbar-brand:hover, .navbar-brand:focus {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+
+/*.topbar .dropdown {
+    position: static;
+}
+
+.topbar .dropdown .dropdown-menu {
+    width: calc(100% - 1.5rem);
+    right: 0.75rem;
+}
+
+.topbar .dropdown-list {
+    padding: 0;
+    border: none;
+    overflow: hidden;
+}*/
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

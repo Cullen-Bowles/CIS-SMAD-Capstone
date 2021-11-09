@@ -11,14 +11,7 @@ namespace WebApplication4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Username"] == null)
-            {
-                lblloggedin.Text = "";
-            }
-            else
-            {
-                lblloggedin.Text = Session["Username"].ToString();
-            }
+
         }
     }
 }

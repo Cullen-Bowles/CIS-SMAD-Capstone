@@ -1,73 +1,41 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication4.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" MasterPageFile="~/Site1.Master" Inherits="WebApplication4.WebForm1" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #17a2b8;
-            height: 100vh;
-        }
-
-        #login .container #login-row #login-column #login-box {
-            margin-top: 120px;
-            max-width: 600px;
-            height: 320px;
-            border: 1px solid #9C9C9C;
-            background-color: #EAEAEA;
-        }
-
-            #login .container #login-row #login-column #login-box #login-form {
-                padding: 20px;
-            }
-
-                #login .container #login-row #login-column #login-box #login-form #register-link {
-                    margin-top: -85px;
-                }
-    </style>
-    <title></title>
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-</head>
-<body>
-   
-    <div id="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form class="form" action="" method="post" runat="server">
-                            <h3 class="text-center text-info">Log In</h3>
-                            <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br />
-                                <asp:TextBox ID="txtusername" runat="server"></asp:TextBox>
-                                <asp:Label ID="LoginFailure" runat="server" Text=""></asp:Label>
-                                <%--<input type="text" name="username" id="username" class="form-control" />--%>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br />
-                                <asp:TextBox ID="txtpassword" runat="server" type="password"></asp:TextBox>
-                                <%--<input type="text" name="password" id="password" class="form-control"/>--%>
-                                <br />
-                                <asp:Button ID="btnlogin" runat="server" Text="Log In" OnClick="btnlogin_Click" />
-                                <%--<input type="submit" name="submit" class="btn btn-info btn-md" value="LOG IN"/>--%>
-                            </div>
-                            <div id="register-link" class="text-right">
-                                <br />
-                                Dont have an account? <a href="CreateUser.aspx" class="text-info">Register here</a>
-                            </div>
-                        </form>
-                    </div>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h2><%: Title %></h2>
+    <p>Please enter your username and password to log in.</p>
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    Log in
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <asp:TextBox ID="txtusername" runat="server" class="form-control" placeholder="Enter username" ></asp:TextBox>
+                            
+                            <asp:Label ID="LoginFailure" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <asp:TextBox ID="txtpassword" runat="server" type="password"  class="form-control" placeholder="Password"></asp:TextBox>
+                           
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                            <br />
+                            Don't have an account? <a href="CreateUser.aspx" class="text-info">Register here</a>
+                        </div>
+                        
+                        <asp:Button ID="btnlogin" runat="server" Text="Log In" class="btn btn-primary" OnClick="btnlogin_Click" />
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    
-    <script src="Scripts/jquery-3.6.0.min.js"></script>
-    <script src="Scripts/popper.min.js"></script>
-    <script src="bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</asp:Content>
+
+
