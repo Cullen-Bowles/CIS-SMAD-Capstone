@@ -41,24 +41,24 @@ namespace WebApplication4
                     txtEmail.Text = src.GetValue(0).ToString();
                 }
                 con2.Close();
-                //con.Open();
-                //String sqlQuery = "SELECT TextID, StoryTitle FROM Story WHERE UserID = @UserID";
-                //SqlCommand comm = new SqlCommand(sqlQuery, con);
-                //comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
-                //SqlDataReader srd = comm.ExecuteReader();
-                //if (srd.HasRows)
-                //{
-                //    ddlusersstories.DataSource = srd;
-                //    ddlusersstories.DataTextField = "StoryTitle";
-                //    ddlusersstories.DataValueField = "TextID";
-                //    ddlusersstories.DataBind();
-                //}
-                //con.Close();
-                //ddlusersstories.Items.Insert(0, new ListItem("Select a Story", "0"));//placeholder for when page is first loaded
-                //ddlusersstories.Items[0].Selected = true;
-                //ddlusersstories.Items[0].Attributes["disabled"] = "disabled";
+                con.Open();
+                String sqlQuery = "SELECT TextID, StoryTitle FROM Story WHERE UserID = @UserID";
+                SqlCommand comm = new SqlCommand(sqlQuery, con);
+                comm.Parameters.AddWithValue("@UserID", Session["UserId"]);
+                SqlDataReader srd = comm.ExecuteReader();
+                if (srd.HasRows)
+                {
+                    ddlusersstories.DataSource = srd;
+                    ddlusersstories.DataTextField = "StoryTitle";
+                    ddlusersstories.DataValueField = "TextID";
+                    ddlusersstories.DataBind();
+                }
+                con.Close();
+                ddlusersstories.Items.Insert(0, new ListItem("Select a Story", "0"));//placeholder for when page is first loaded
+                ddlusersstories.Items[0].Selected = true;
+                ddlusersstories.Items[0].Attributes["disabled"] = "disabled";
 
-                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid="+txtEmail.Text+"request=listsaextracts";
+                String URL = "http://saworker.storyanalyzer.org/saresults.php?uid="+txtEmail.Text+"&request=listsaextracts";
 
                 var response = hClient.GetStringAsync(new Uri(URL)).Result;
 
@@ -85,25 +85,25 @@ namespace WebApplication4
         }
 
         protected void ddlusersstories_SelectedIndexChanged(object sender, EventArgs e)
-        {                     
-                //con.Open();
-                //SqlCommand comm = new SqlCommand("SELECT TextID, StoryTitle, StorySource, StoryText FROM Story WHERE TextID=" + ddlusersstories.SelectedValue, con);
-                //SqlDataReader srd = comm.ExecuteReader();
-                //if (srd.Read())
-                //{
-                //    Session["TextID"] = srd.GetValue(0);
-                //    txtstorytile.Text = srd.GetValue(1).ToString();
+        {
+            con.Open();
+            SqlCommand comm = new SqlCommand("SELECT TextID, StoryTitle, StorySource, StoryText FROM Story WHERE TextID=" + ddlusersstories.SelectedValue, con);
+            SqlDataReader srd = comm.ExecuteReader();
+            if (srd.Read())
+            {
+                //Session["TextID"] = srd.GetValue(0);
+                //txtstorytile.Text = srd.GetValue(1).ToString();
                 ////var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());// guarantees that the date being sent to text box is in validation format                   
-                //    txtstorysource.Text = srd.GetValue(2).ToString();
-                //    txtstorytext.Text = srd.GetValue(3).ToString();
-                //    txtTitle.Text = srd.GetValue(1).ToString();
-                //    txtURL.Text = srd.GetValue(2).ToString();
-                //    txtStory.Text = srd.GetValue(3).ToString();
-                //}
-                //srd.Close();
-                //con.Close();
-            
-            
+                //txtstorysource.Text = srd.GetValue(2).ToString();
+                //txtstorytext.Text = srd.GetValue(3).ToString();
+                txtTitle.Text = srd.GetValue(1).ToString();
+                txtURL.Text = srd.GetValue(2).ToString();
+                txtStory.Text = srd.GetValue(3).ToString();
+            }
+            srd.Close();
+            con.Close();
+
+
 
         }
 

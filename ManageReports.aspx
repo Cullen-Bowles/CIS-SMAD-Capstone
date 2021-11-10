@@ -7,19 +7,19 @@
     <asp:DropDownList ID="ddlusersreports" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged"></asp:DropDownList>
     <br />
     <br />
-    <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: " ForeColor="White"></asp:Label>
+    <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: "></asp:Label>
     <asp:TextBox ID="txtstorytile" runat="server" ReadOnly="true"></asp:TextBox>
     <br />
     <br />
-    <asp:Label ID="lblstorydate" runat="server" Text="Date Submitted: " ForeColor="White"></asp:Label>
+    <asp:Label ID="lblstorydate" runat="server" Text="Date Submitted: "></asp:Label>
     <asp:TextBox ID="txtsubmissiondate" runat="server" TextMode="Date"></asp:TextBox>
     <br />
     <br />
-    <asp:Label ID="lblstorysource" runat="server" Text="Story Source: " ForeColor="White"></asp:Label>
+    <asp:Label ID="lblstorysource" runat="server" Text="Story Source: "></asp:Label>
     <asp:TextBox ID="txtstorysource" runat="server" ReadOnly="true"></asp:TextBox>
     <br />
     <br />
-    <asp:Label ID="lblstorytext" runat="server" Text="Report: " ForeColor="White"></asp:Label>
+    <asp:Label ID="lblstorytext" runat="server" Text="Report: "></asp:Label>
     <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true"></asp:TextBox>
     <br />
     <br />
