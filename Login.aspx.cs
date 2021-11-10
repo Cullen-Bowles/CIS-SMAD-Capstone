@@ -32,6 +32,7 @@ namespace WebApplication4
                     LoginFailure.Text = "User Successfully Logged Out!";
 
                 }
+                Session["MessageCount"] = 0;
             }
         }
 

@@ -72,6 +72,10 @@ textarea {
         color: #ffffff;
     }
 
+.badge.even-larger-badge {
+    font-size: 1.1em;
+}
+
 
 /*.topbar .dropdown {
     position: static;
