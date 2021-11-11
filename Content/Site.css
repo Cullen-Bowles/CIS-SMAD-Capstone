@@ -19,11 +19,12 @@ textarea {
 }
 
 .bg-jmu {
-    background-color: #663366;
+    background-color: cornflowerblue;
     background-image: url("Images/teartop.png");
     /* Center and scale the image nicely */
     background-position: bottom;
     background-repeat: repeat-x;
+    
 }
 
 .navbar-jmu {
