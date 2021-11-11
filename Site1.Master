@@ -74,7 +74,8 @@
                                     <%--<a class="dropdown-item" href="Messenger.aspx">Messages</a>--%>  <!-- TODO: optionally add message page link here too -->
                                     <a class="dropdown-item" href="ManageUser.aspx">Manage</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="Login.aspx">Log out</a>
+                                    <a class="dropdown-item" href="Login.aspx?loggedout=true">
+                                        <%Session.Abandon();%>Log out</a>
                                 </div>
                             </li>
                         </ul>
