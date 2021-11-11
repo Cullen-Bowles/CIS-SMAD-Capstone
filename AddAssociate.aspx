@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
-            color: #FFFFFF;
+            
             font-weight: bold;
             margin-left: 40px;
         }
