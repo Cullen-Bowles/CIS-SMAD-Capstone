@@ -44,7 +44,8 @@
             <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-jmu bg-jmu topbar  border-bottom box-shadow mb-3">
                 <div class="container-fluid">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Story Analyzer </a>  <!--width="151" height="50"-->
+                    
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img src="/Content/Images/logo.png.png" alt="" width="auto" height="100"> </a>  <!--width="151" height="50"-->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -93,15 +94,15 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="SubmitRequest.aspx">Send Request</a>
                                     <a class="dropdown-item" href="ViewReports.aspx">View Completed Requests</a>
-                                    <a class="dropdown-item" href="AssociateReport.aspx">View Shared Requests</a>
-                                    <a class="dropdown-item" href="ManageReports.aspx">Manage Requests</a>
+                                    <%--<a class="dropdown-item" href="AssociateReport.aspx">View Shared Requests</a>--%>
+                                    <%--<a class="dropdown-item" href="ManageReports.aspx">Manage Requests</a>--%>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Analysis Commons</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="AddAssociate.aspx">Add Analysis Colleagues</a>
-                                    <a class="dropdown-item" href="ShareReports.aspx">Share Reports</a>
+                                    <%--<a class="dropdown-item" href="ShareReports.aspx">Share Reports</a>--%>
                                     <a class="dropdown-item" href="Messanger.aspx">Colleague Messenger</a>
                                     <a class="dropdown-item" href="DeleteAssociate.aspx">Manage Colleagues</a>
                                 </div>
