@@ -77,7 +77,7 @@ DateRead DATETIME,
 CreatedByUsername VARCHAR(20));
 
 INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
-VALUES ('AdminUser', 'cbowles201@gmail.com', 'Cullen', 'Bowles','James Madison University', 'Testing the Story Analyzer Program');
+VALUES ('AdminUser', 'saleh2mx@dukes.jmu.edu', 'Cullen', 'Bowles','James Madison University', 'Testing the Story Analyzer Program');
 INSERT INTO Person (Username, Email,FirstName, LastName, Organization, Reason)
 VALUES ('CatDog67', 'si1verArr0w@gmail.com','Duke', 'Wilson', 'Berkley Mid-Atlantic', 'Analyzing insurance reports for fraud');
 INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
