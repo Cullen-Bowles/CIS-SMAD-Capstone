@@ -71,7 +71,7 @@
                                     <asp:Label ID="lblloggedin" runat="server" Text=""> <% =Session["Username"] %></asp:Label>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right  mr-5">
-                                    <a class="dropdown-item" href="Messenger.aspx">Messages</a>  <!-- TODO: optionally add message page link here too -->
+                                    <%--<a class="dropdown-item" href="Messenger.aspx">Messages</a>--%>  <!-- TODO: optionally add message page link here too -->
                                     <a class="dropdown-item" href="ManageUser.aspx">Manage</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="Login.aspx">Log out</a>
@@ -103,7 +103,7 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="AddAssociate.aspx">Add Analysis Colleagues</a>
                                     <%--<a class="dropdown-item" href="ShareReports.aspx">Share Reports</a>--%>
-                                    <a class="dropdown-item" href="Messanger.aspx">Colleague Messenger</a>
+                                    <%--<a class="dropdown-item" href="Messenger.aspx">Colleague Messenger</a>--%>
                                     <a class="dropdown-item" href="DeleteAssociate.aspx">Manage Colleagues</a>
                                 </div>
                             </li>

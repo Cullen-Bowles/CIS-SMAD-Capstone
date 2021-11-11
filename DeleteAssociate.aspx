@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style2 {
-            color: #FFFFFF;
+            
             font-weight: bold;
         }
         .auto-style3 {
-            color: #000000;
+            
             font-weight: bold;
             margin-left: 40px;
         }
@@ -14,11 +14,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p class="auto-style3">
-        <span class="text-white">&nbsp; </span></p>
+        <span>&nbsp; </span></p>
     <p class="auto-style3">
-        <span class="text-white">&nbsp;&nbsp; Select a colleague to remove</span></p>
+        <span>&nbsp;&nbsp; Select a colleague to remove</span></p>
     <p class="auto-style3">
-&nbsp;&nbsp; <span class="text-white">Y</span><span class="auto-style2">our Colleagues</span></p>
+&nbsp;&nbsp; <span>Y</span><span class="auto-style2">our Colleagues</span></p>
     <p class="auto-styl1">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Width="239px" DataTextField="SharedUsername" DataValueField="SharedUsername" AutoPostBack="true">
         </asp:DropDownList>
