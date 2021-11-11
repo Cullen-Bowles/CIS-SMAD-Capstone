@@ -42,8 +42,8 @@
       <div class="col-md-6">
         <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2>How to begin...</h2>
-          <p> Click on the button below to enter a story! </p>
-          <button class="btn btn-outline-light" type="button" onclick="StoryEntry.aspx">Go to Story Entry</button>
+          <p> Select the Story Management dropdown then click on story entry to add a story to your account to be analyzed.</p>
+          <%--<button class="btn btn-outline-light" type="button" onclick="StoryEntry.aspx">Go to Story Entry</button>--%>
         </div>
       </div>
       <div class="col-md-6">
