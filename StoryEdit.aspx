@@ -7,7 +7,7 @@
 
         <h1>View Posted Texts</h1>
         <div class="row">
-            <asp:DropDownList ID="StoriesList" runat="server" Width="500" OnSelectedIndexChanged="StoriesList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+            <asp:DropDownList ID="StoriesList" runat="server" CssClass="form-control" Width="500" OnSelectedIndexChanged="StoriesList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
         </div>
         <div class="row">
             <asp:Label ID="LoggedIn" runat="server" Text=""></asp:Label>
