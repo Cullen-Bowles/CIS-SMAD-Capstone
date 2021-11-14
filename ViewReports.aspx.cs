@@ -27,13 +27,13 @@
             }
             else if (!Page.IsPostBack)
             {
-                //con2.Open();
-                //var email = "SELECT Email FROM Person WHERE UserID = @UserID";
-                //var com1 = new SqlCommand(email, con2);
-                //com1.Parameters.AddWithValue("@UserID", Session["UserID"]);
-                //var src = com1.ExecuteReader();
-                //if (src.Read()) txtEmail.Text = src.GetValue(0).ToString();
-                //con2.Close();
+                con2.Open();
+                var email = "SELECT Email FROM Person WHERE UserID = @UserID";
+                var com1 = new SqlCommand(email, con2);
+                com1.Parameters.AddWithValue("@UserID", Session["UserID"]);
+                var src = com1.ExecuteReader();
+                if (src.Read()) txtEmail.Text = src.GetValue(0).ToString();
+                con2.Close();
                 //con.Open();
                 //String sqlQuery = "SELECT AnalysisNumber, AnalysisTitle FROM AnalysisRecord WHERE UserID = @UserID";
                 //SqlCommand comm = new SqlCommand(sqlQuery, con);

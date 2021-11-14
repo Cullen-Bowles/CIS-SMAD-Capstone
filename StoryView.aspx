@@ -13,7 +13,7 @@
             <div class="storyFormat">
                 <h1>Your Stories</h1>
                 <div class="row">
-                    <asp:DropDownList ID="StoriesList" runat="server" Width="500" OnSelectedIndexChanged="StoriesList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                    <asp:DropDownList ID="StoriesList" CssClass="form-control" runat="server" Width="500" OnSelectedIndexChanged="StoriesList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                 </div>
                 <div class="row">
                     <asp:Label ID="LoggedIn" runat="server" Text=""></asp:Label>
@@ -44,7 +44,7 @@
                         <asp:Label ID="StorySource" runat="server" Text="Story Source:" ></asp:Label>
                     </div>
                     <div class="col-9">
-                        <asp:TextBox ID="StorySourceEntry" runat="server" AutoPostBack="false" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="StorySourceEntry" runat="server" CssClass="form-control" AutoPostBack="false" ReadOnly="true"></asp:TextBox>
                         <span>&nbsp;</span>
 
                     </div>
