@@ -15,13 +15,49 @@ namespace WebApplication4
     {
 
         /// <summary>
-        /// ddlusersreports control.
+        /// lblSelectAnalysis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlusersreports;
+        protected global::System.Web.UI.WebControls.Label lblSelectAnalysis;
+
+        /// <summary>
+        /// ddlSAList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSAList;
+
+        /// <summary>
+        /// btnMakeRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMakeRequest;
+
+        /// <summary>
+        /// lblRequests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRequests;
+
+        /// <summary>
+        /// ddlRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRequest;
 
         /// <summary>
         /// lblstorytitle control.
@@ -33,31 +69,13 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.Label lblstorytitle;
 
         /// <summary>
-        /// txtstorytile control.
+        /// txtstorytitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtstorytile;
-
-        /// <summary>
-        /// lblstorydate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblstorydate;
-
-        /// <summary>
-        /// txtsubmissiondate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsubmissiondate;
+        protected global::System.Web.UI.WebControls.TextBox txtstorytitle;
 
         /// <summary>
         /// lblstorysource control.
@@ -96,12 +114,21 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.TextBox txtstorytext;
 
         /// <summary>
-        /// btndeletereport control.
+        /// btnPUTedit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btndeletereport;
+        protected global::System.Web.UI.WebControls.Button btnPUTedit;
+
+        /// <summary>
+        /// lblPostResponseMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPostResponseMessage;
     }
 }

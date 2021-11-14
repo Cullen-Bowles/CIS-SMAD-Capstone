@@ -24,42 +24,6 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.DropDownList ddlusersstories;
 
         /// <summary>
-        /// lblAnalysis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAnalysis;
-
-        /// <summary>
-        /// ddlExtracts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlExtracts;
-
-        /// <summary>
-        /// lblCommand control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCommand;
-
-        /// <summary>
-        /// ddlCommands control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCommands;
-
-        /// <summary>
         /// lblemail control.
         /// </summary>
         /// <remarks>

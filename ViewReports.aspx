@@ -1,88 +1,72 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ViewReports.aspx.cs" Inherits="WebApplication4.ViewReports" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        /*body {*/
 
-        /*text-align: left;*/
-        /*}*/
-
-        section {
-            margin-left: auto;
-            margin-right: auto;
-            width: 70%;
-            text-align: left;
-        }
-
-        .column {
-            float: left;
-            width: 15%;
-            padding: 20px;
-            height: 50px;
-            text-align: left;
-            text-wrap: avoid;
-        }
-
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        .ddlmargin {
-            margin: 5px;
-        }
-
-        aside {
-            float: right;
-            width: 500px;
-            position: relative;
-            right: 20px;
-        }
-
-        .addPadding {
-            padding: 5px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card">
-        <%--<form id="form1" runat="server">--%>
-        <div class="card-body">
-            <h2>View Your Report</h2>
-            <br />
-            <br />
-            <asp:Label ID="lblemail" runat="server" Text="User Email:"></asp:Label>
-            &nbsp;&nbsp;
-            <asp:TextBox ID="txtEmail" runat="server" Width="200" ReadOnly="true"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="lblSelectAnalysis" runat="server" Text="SelectAnalysis"></asp:Label>
-            <asp:DropDownList ID="ddlSAList" runat="server"></asp:DropDownList>
-            <asp:Label ID="lblRequests" runat="server" Text="Choose Request:"></asp:Label>
-            <asp:DropDownList ID="ddlRequest" runat="server">
-                <asp:ListItem Text="gettitle"></asp:ListItem>
-                <asp:ListItem Text="getsource"></asp:ListItem>
-                <asp:ListItem Text="getpeople"></asp:ListItem>
-                <asp:ListItem Text="getplaces"></asp:ListItem>
-                <asp:ListItem Text="getvisinteractionschord"></asp:ListItem>
-                <asp:ListItem Text="getvisnarrativeweb"></asp:ListItem>
-                <asp:ListItem Text="getviswordcloud-subjects"></asp:ListItem>
-                <asp:ListItem Text="getviswordcloud-places"></asp:ListItem>
-                <asp:ListItem Text="getviswordcloud-people"></asp:ListItem>
-                <asp:ListItem Text="getviswordcloud-groups"></asp:ListItem>
-                <asp:ListItem Text="getsentencedetails"></asp:ListItem>
-                <asp:ListItem Text="showdashboard"></asp:ListItem>
-                <asp:ListItem Text="showbootstrapdashboard"></asp:ListItem>
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <%--<form id="form1" runat="server">--%>
+                <div class="card-body">
+                    <h2>View Your Report</h2>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblemail" runat="server" Text="User Email:"></asp:Label>
+                    &nbsp;&nbsp;
+                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" Width="200" ReadOnly="true"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblSelectAnalysis" runat="server" Text="SelectAnalysis"></asp:Label>
+                    <asp:DropDownList ID="ddlSAList" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:Label ID="lblRequests" runat="server" Text="Choose Request:"></asp:Label>
+                    <asp:DropDownList CssClass="form-control" ID="ddlRequest" runat="server">
+                        <asp:ListItem Text="Get Title" value="gettitle"></asp:ListItem>
+                        <asp:ListItem Text="Get Source" value="getsource"></asp:ListItem>
+                        <asp:ListItem Text="Get People" value="getpeople"></asp:ListItem>
+                        <asp:ListItem Text="Get Places" value="getplaces"></asp:ListItem>
+                        <asp:ListItem Text="getvisinteractionschord" value=""></asp:ListItem>
+                        <asp:ListItem Text="getvisnarrativeweb" value=""></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-subjects" value=""></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-places" value=""></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-people" value=""></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-groups" value=""></asp:ListItem>
+                        <asp:ListItem Text="getsentencedetails" value=""></asp:ListItem>
+                        <asp:ListItem Text="Show Dashboard" value="showdashboard"></asp:ListItem>
+                        <asp:ListItem Text="Show Formatted Dashboard" value="showbootstrapdashboard"></asp:ListItem>
 
-            </asp:DropDownList>
-            <br />
-            <asp:Button ID="btnMakeRequest" runat="server" Text="Make Analysis Request" OnClick="btnMakeRequest_Click" />
-            <br />
-            <asp:TextBox ID="txtDisplay" runat="server" Rows="15" Height="200" Width="400" TextMode="MultiLine"></asp:TextBox>
+                    </asp:DropDownList>
+                    <br />
+                    <asp:Button ID="btnMakeRequest" CssClass="btn btn-success" runat="server" Text="Make Analysis Request" OnClick="btnMakeRequest_Click" />
+                    <br />
+                    <asp:TextBox ID="txtDisplay" runat="server"  CssClass="form-control" Rows="15" Height="200" Width="400" TextMode="MultiLine"></asp:TextBox>
+                    <%--<input id="CallButton" name="CallButton" class="btn btn-warning" type="button" value="TEST" />--%>
+                    <div runat="server" id="displayViz"></div>
+                </div>
+                
+                <%--</form>--%>
+            </div>
         </div>
-        <div runat="server" id="displayViz"></div>
-        <%--</form>--%>
+        <div class="col-6">
+            <div class="row">
+                <div class="col">
+                    <h2>Edit Your Report</h2>
+                    <br />
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="Choose Edit:"></asp:Label>
+                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
+                        <asp:ListItem Text="Set Title" value="settitle"></asp:ListItem>
+                        <asp:ListItem Text="Set Source" value="setsource"></asp:ListItem>
+                        <asp:ListItem Text="Set Tokens Detail" value="settokensdetail"></asp:ListItem>
+                        <asp:ListItem Text="Set Sendtence Details" value="setsentencedetails"></asp:ListItem>
+                        
+                        
+
+                    </asp:DropDownList>
+                </div>
+            </div>
+        </div>
     </div>
+    
     <%--<br />
     <br />
     <asp:DropDownList ID="ddlusersreports" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
@@ -104,5 +88,7 @@
     <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true"></asp:TextBox>
     <br />
     <br />--%>
+    
+
     
 </asp:Content>

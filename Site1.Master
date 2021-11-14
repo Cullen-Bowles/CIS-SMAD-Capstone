@@ -12,7 +12,7 @@
     <link href="Content/all.min.css" rel="stylesheet" type="text/css">
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -58,11 +58,17 @@
                             <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="Messenger.aspx" id="messagesDropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"                                    ></i>
+                                <i class="fas fa-envelope fa-fw"></i>
                                 <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter even-larger-badge">
-                                    <% =Session["MessageCount"] %> <!-- TODO: replace with result from count query, and add if statement to show nothing if no messages -->                                   
-                                </span>
+                                
+                                <% if (Session["MessageCount"] != null && Session["MessageCount"].ToString() != "0")
+                                       { %>
+                                       <span class="badge badge-danger badge-counter even-larger-badge">
+                                           <% =Session["MessageCount"] %>
+                                       </span>
+                                        <%
+                                       } 
+                                    %>
                             </a>
                      
                         </li>
@@ -74,7 +80,7 @@
                                     <%--<a class="dropdown-item" href="Messenger.aspx">Messages</a>--%>  <!-- TODO: optionally add message page link here too -->
                                     <a class="dropdown-item" href="ManageUser.aspx">Manage</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="Login.aspx?loggedout=true">
+                                    <a class="dropdown-item" href="Logout.aspx">
                                        Log out</a>
                                 </div>
                             </li>
@@ -96,7 +102,7 @@
                                     <a class="dropdown-item" href="SubmitRequest.aspx">Send Request</a>
                                     <a class="dropdown-item" href="ViewReports.aspx">View Completed Requests</a>
                                     <%--<a class="dropdown-item" href="AssociateReport.aspx">View Shared Requests</a>--%>
-                                    <%--<a class="dropdown-item" href="ManageReports.aspx">Manage Requests</a>--%>
+                                    <a class="dropdown-item" href="ManageReports.aspx">Manage Extracts</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

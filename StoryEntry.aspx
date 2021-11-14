@@ -44,7 +44,7 @@
                         <asp:Label ID="StorySource" runat="server" Text="Story Source:"></asp:Label>
                     </div>
                     <div class="col-9">
-                        <asp:TextBox ID="StorySourceEntry" runat="server" AutoPostBack="false"></asp:TextBox>
+                        <asp:TextBox ID="StorySourceEntry" CssClass="form-control" runat="server" AutoPostBack="false"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StorySourceEntry" ForeColor="Red" Text="Story Source Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
                         <span>&nbsp;</span>
                         <span>&nbsp;</span>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <asp:Button ID="Confirm" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="Confirm_Click" />
+                    <asp:Button ID="Confirm" runat="server" Text="Save" CssClass="btn btn-primary mr-2" OnClick="Confirm_Click" />
                     <asp:Button ID="Clear" runat="server" Text="Clear" CssClass="btn btn-secondary" OnClick="Clear_Click" CausesValidation="False" />
                 </div>
             </div>

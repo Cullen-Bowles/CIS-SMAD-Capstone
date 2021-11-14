@@ -30,7 +30,7 @@
                             Don't have an account? <a href="CreateUser.aspx" class="text-info">Register here</a>
                         </div>
                         
-                        <asp:Button ID="btnlogin" runat="server" Text="Log In" class="btn btn-primary" OnClick="btnlogin_Click" />
+                        <asp:Button ID="btnlogin" runat="server" Text="Log In" class="btn btn-primary mt-2" OnClick="btnlogin_Click" />
                     </form>
                 </div>
             </div>
