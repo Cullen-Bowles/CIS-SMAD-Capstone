@@ -20,10 +20,11 @@
                 </div>
                 <div class="row">
                     <div class="col-3">
-                        <asp:Label ID="StoryTitle" runat="server" Text="Story Title:"></asp:Label>
+                        <asp:Label ID="StoryTitle" runat="server" Text="Story Title:" ></asp:Label>
                     </div>
                     <div class="col-9">
                         <asp:TextBox ID="StoryTitleEntry" CssClass="form-control" runat="server" AutoPostBack="false" ReadOnly="true"></asp:TextBox>
+                        <span>&nbsp;</span>
 
                     </div>
                 </div>
@@ -31,18 +32,20 @@
 
                 <div class="row">
                     <div class="col-3">
-                        <asp:Label ID="StoryDate" runat="server" Text="Story Submission Date:"></asp:Label>
+                        <asp:Label ID="StoryDate" runat="server" Text="Story Submission Date:" ></asp:Label>
                     </div>
                     <div class="col-9">
                         <asp:TextBox ID="StoryDateEntry" runat="server" CssClass="form-control" AutoPostBack="false" ReadOnly="true"></asp:TextBox>
+                        <span>&nbsp;</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-3">
-                        <asp:Label ID="StorySource" runat="server" Text="Story Source:"></asp:Label>
+                        <asp:Label ID="StorySource" runat="server" Text="Story Source:" ></asp:Label>
                     </div>
                     <div class="col-9">
                         <asp:TextBox ID="StorySourceEntry" runat="server" AutoPostBack="false" ReadOnly="true"></asp:TextBox>
+                        <span>&nbsp;</span>
 
                     </div>
                 </div>
@@ -52,7 +55,7 @@
                     </div>
                     <div class="col-9">
                         <asp:TextBox ID="StoryTextEntry" runat="server" Rows="10" Columns="100" AutoPostBack="false" CssClass="form-control" TextMode="MultiLine" Wrap="True" ReadOnly="true"></asp:TextBox>
-
+                        <span>&nbsp;</span>
                     </div>
                 </div>
 

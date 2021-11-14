@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="storyFormat">
 
-        <h1>View Posted Texts</h1>
+        <h1>Edit Your Stories</h1>
         <div class="row">
             <asp:DropDownList ID="StoriesList" runat="server" CssClass="form-control" Width="500" OnSelectedIndexChanged="StoriesList_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
         </div>
@@ -42,8 +42,10 @@
                 <asp:Label ID="StorySource" runat="server" Text="Story Source:"></asp:Label>
             </div>
             <div class="col-9">
-                <asp:TextBox ID="StorySourceEntry" runat="server" AutoPostBack="false"></asp:TextBox>
+                <asp:TextBox ID="StorySourceEntry" runat="server" AutoPostBack="false" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StorySourceEntry" ForeColor="Red" Text="Story Source Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
+                <span>&nbsp;</span>
+                <span>&nbsp;</span>
             </div>
         </div>
         <div class="row">
@@ -56,7 +58,7 @@
             </div>
         </div>
         <div class="row">
-            <asp:Button ID="Confirm" runat="server" Text="Save Changes" Height="25px" Width="70px" OnClick="Confirm_Click" />
-            <%--<asp:Button ID="Clear" runat="server" Text="Clear" Height="25px" Width="70px" OnClick="Clear_Click" CausesValidation="False" />--%>
+            <asp:Button ID="Confirm" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="Confirm_Click" />
+        <%--<asp:Button ID="Clear" runat="server" Text="Clear" CssClass="btn btn-secondary"  OnClick="Clear_Click" CausesValidation="False" />--%>
         </div>
 </asp:Content>

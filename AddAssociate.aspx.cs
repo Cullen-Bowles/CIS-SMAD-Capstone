@@ -92,7 +92,7 @@ namespace WebApplication4
                 String ch = "SELECT COUNT(1) FROM AnalysisCommons WHERE UserID = @UserID AND SharedUsername = @SharedUsername";
                 SqlCommand queryCh = new SqlCommand(ch, sqlConnect1);
                 queryCh.Parameters.AddWithValue("@SharedUsername", HttpUtility.HtmlEncode(txtSearch.Text.ToString()));
-                queryCh.Parameters.AddWithValue("@UserID", Session["UserID"].ToString());
+                queryCh.Parameters.AddWithValue("@UserID", Session["UserID"]);
                 int val3 = Convert.ToInt32(queryCh.ExecuteScalar());
 
 

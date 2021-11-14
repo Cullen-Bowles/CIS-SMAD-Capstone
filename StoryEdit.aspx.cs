@@ -44,18 +44,18 @@ namespace WebApplication4
                 srd.Close();
                 if (hasStory)
                 {
-                    String sqlQuery = "SELECT StoryTitle, StoryDate, StorySource, StoryText FROM Story where TextID = " + 1;
-                    SqlCommand comm = new SqlCommand(sqlQuery, con);
-                    srd = comm.ExecuteReader();
-                    while (srd.Read())
-                    {
-                        StoryTitleEntry.Text = srd.GetValue(0).ToString();
-                        var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());
-                        StoryDateEntry.Text = storyDateTime.ToShortDateString();
-                        StorySourceEntry.Text = srd.GetValue(2).ToString();
-                        StoryTextEntry.Text = srd.GetValue(3).ToString();
-                    }
-                    srd.Close();
+                    //String sqlQuery = "SELECT StoryTitle, StoryDate, StorySource, StoryText FROM Story where TextID = " + 1;
+                    //SqlCommand comm = new SqlCommand(sqlQuery, con);
+                    //srd = comm.ExecuteReader();
+                    //while (srd.Read())
+                    //{
+                    //    StoryTitleEntry.Text = srd.GetValue(0).ToString();
+                    //    var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());
+                    //    StoryDateEntry.Text = storyDateTime.ToShortDateString();
+                    //    StorySourceEntry.Text = srd.GetValue(2).ToString();
+                    //    StoryTextEntry.Text = srd.GetValue(3).ToString();
+                    //}
+                    //srd.Close();
                 }
                 con.Close();
             }
@@ -80,6 +80,7 @@ namespace WebApplication4
             StoriesList.Items.Insert(0, new ListItem("Select a Story", "0"));//placeholder for when page is first loaded
             StoriesList.Items[0].Selected = true;
             StoriesList.Items[0].Attributes["disabled"] = "disabled";
+            StoryTitleEntry.ReadOnly = true;
             StoryDateEntry.ReadOnly = true;
             StorySourceEntry.ReadOnly = true;
             StoryTextEntry.ReadOnly = true;
@@ -121,6 +122,10 @@ namespace WebApplication4
             }
             srd.Close();
             con.Close();
+            StoryTitleEntry.ReadOnly = false;
+            StoryDateEntry.ReadOnly = false;
+            StorySourceEntry.ReadOnly = false;
+            StoryTextEntry.ReadOnly = false;
         }
     }
 }

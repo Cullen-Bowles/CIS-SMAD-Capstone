@@ -46,6 +46,8 @@
                     <div class="col-9">
                         <asp:TextBox ID="StorySourceEntry" CssClass="form-control" runat="server" AutoPostBack="false"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StorySourceEntry" ForeColor="Red" Text="Story Source Cannot be blank" BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
+                        <span>&nbsp;</span>
+                        <span>&nbsp;</span>
                     </div>
                 </div>
                 <div class="row">
