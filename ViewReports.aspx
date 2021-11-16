@@ -24,12 +24,12 @@
                         <asp:ListItem Text="Get Source" value="getsource"></asp:ListItem>
                         <asp:ListItem Text="Get People" value="getpeople"></asp:ListItem>
                         <asp:ListItem Text="Get Places" value="getplaces"></asp:ListItem>
-                        <asp:ListItem Text="Get the Interactions Chord" value="getvisinteractionschord"></asp:ListItem>
-                        <asp:ListItem Text="Get the Narrative Web" value="getvisnarrativeweb"></asp:ListItem>
-                        <asp:ListItem Text="Get the Subjects Wordcloud" value="getviswordcloud-subjects"></asp:ListItem>
-                        <asp:ListItem Text="Get the Places Wordcloud" value="getviswordcloud-places"></asp:ListItem>
-                        <asp:ListItem Text="Get the People Wordcloud" value="getviswordcloud-people"></asp:ListItem>
-                        <asp:ListItem Text="Get the Group Wordcloud" value="getviswordcloud-groups"></asp:ListItem>
+                        <asp:ListItem Text="getvisinteractionschord" value="getvisinteractionschord"></asp:ListItem>
+                        <asp:ListItem Text="getvisnarrativeweb" value="getvisnarrativeweb"></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-subjects" value="getviswordcloud-subjects"></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-places" value="getviswordcloud-places"></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-people" value="getviswordcloud-people"></asp:ListItem>
+                        <asp:ListItem Text="getviswordcloud-groups" value="getviswordcloud-groups"></asp:ListItem>
                         <asp:ListItem Text="Get Sentence Details" value="getsentencedetails"></asp:ListItem>
                         <asp:ListItem Text="Show Dashboard" value="showdashboard"></asp:ListItem>
                         <asp:ListItem Text="Show Formatted Dashboard" value="showbootstrapdashboard"></asp:ListItem>
@@ -49,6 +49,8 @@
         <div class="col-6">
             <div class="row">
                 <div runat="server" id="displayViz"></div>
+                
+                
                 <%--<div class="col">
                     <h2>Edit Your Report</h2>
                     <br />

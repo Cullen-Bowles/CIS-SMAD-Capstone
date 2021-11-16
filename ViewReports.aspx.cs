@@ -7,7 +7,6 @@
     using System.Web.Configuration;
     using System.Web.UI;
     using System.Web.UI.WebControls;
-    using Models;
 
     public partial class ViewReports : Page
     {
@@ -133,23 +132,32 @@
                     "window.open('" + URL + "','_newtab');", true);
             }
             //Response.Redirect(URL);
-            else
+            else if (ddlRequest.SelectedValue.Equals("showdashboard"))
             {
+                Page.ClientScript.RegisterStartupScript(GetType(), "OpenWindow",
+                    "window.open('" + URL + "','_newtab');", true);
+
+                DashboardHome.Text =
+                    string.Format("<iframe width=\"100%\" height=\"100%\" id=\"dynamicfrmae\" src=\"{0}\"></iframe>",
+                        URL);
+            }
+            else
                 // The results are HRML for a visualization. I'll replace the contents
                 // of a DIV on the ASP.net form with the results
                 // This will dynamically update the HTML page.
+            {
                 displayViz.InnerHtml = response;
-
-                // test the objects
-                //var result = JsonConvert.DeserializeObject<LineExtract>(response);
-                //var myDeserializedClass = JsonConvert.DeserializeObject<Extract[]>(response);
-                //var myStuff = Root.FromJson(response);
-
-                // TODO: take the object, put the sentences into a dropdown with sentenceNbr/sentence
-                //      then on select, fill second dropdown with tokens  #/token
-                //      text box for new value
-                //      submit build the setsentence request command
             }
+
+            // test the objects
+            //var result = JsonConvert.DeserializeObject<LineExtract>(response);
+            //var myDeserializedClass = JsonConvert.DeserializeObject<Extract[]>(response);
+            //var myStuff = Root.FromJson(response);
+
+            // TODO: take the object, put the sentences into a dropdown with sentenceNbr/sentence
+            //      then on select, fill second dropdown with tokens  #/token
+            //      text box for new value
+            //      submit build the setsentence request command
         }
     }
 }
