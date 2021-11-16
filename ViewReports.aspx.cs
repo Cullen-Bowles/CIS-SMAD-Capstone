@@ -143,7 +143,7 @@
                 // test the objects
                 //var result = JsonConvert.DeserializeObject<LineExtract>(response);
                 //var myDeserializedClass = JsonConvert.DeserializeObject<Extract[]>(response);
-                var myStuff = Root.FromJson(response);
+                //var myStuff = Root.FromJson(response);
 
                 // TODO: take the object, put the sentences into a dropdown with sentenceNbr/sentence
                 //      then on select, fill second dropdown with tokens  #/token
