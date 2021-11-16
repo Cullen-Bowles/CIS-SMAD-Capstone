@@ -30,7 +30,7 @@
                         <asp:ListItem Text="getviswordcloud-places" value=""></asp:ListItem>
                         <asp:ListItem Text="getviswordcloud-people" value=""></asp:ListItem>
                         <asp:ListItem Text="getviswordcloud-groups" value=""></asp:ListItem>
-                        <asp:ListItem Text="getsentencedetails" value=""></asp:ListItem>
+                        <asp:ListItem Text="Get Sentence Details" value="getsentencedetails"></asp:ListItem>
                         <asp:ListItem Text="Show Dashboard" value="showdashboard"></asp:ListItem>
                         <asp:ListItem Text="Show Formatted Dashboard" value="showbootstrapdashboard"></asp:ListItem>
 
@@ -40,7 +40,7 @@
                     <br />
                     <asp:TextBox ID="txtDisplay" runat="server"  CssClass="form-control" Rows="15" Height="200" Width="400" TextMode="MultiLine"></asp:TextBox>
                     <%--<input id="CallButton" name="CallButton" class="btn btn-warning" type="button" value="TEST" />--%>
-                    <div runat="server" id="displayViz"></div>
+                    
                 </div>
                 
                 <%--</form>--%>
@@ -48,7 +48,8 @@
         </div>
         <div class="col-6">
             <div class="row">
-                <div class="col">
+                <div runat="server" id="displayViz"></div>
+                <%--<div class="col">
                     <h2>Edit Your Report</h2>
                     <br />
                     <br />
@@ -62,7 +63,7 @@
                         
 
                     </asp:DropDownList>
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>

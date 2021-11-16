@@ -36,7 +36,7 @@
             loginCommand.CommandType = CommandType.StoredProcedure;
             loginCommand.CommandText = "sp_UserLogin";
             loginCommand.Parameters.AddWithValue("@Username", txtusername.Text);
-
+            var setEmail = "SELECT Email FROM Person WHERE UserID = @UserID";
             var validLogin = false;
 
             con2.Open();
@@ -64,6 +64,17 @@
             {
                 Session.Clear();
                 LoginFailure.Text = "Incorrect Username or Password";
+            }
+
+            loginResults.Close();
+
+            if (validLogin)
+            {
+                var comm = new SqlCommand(setEmail, con2);
+                var param = new SqlParameter("@UserID", Session["UserID"]);
+                comm.Parameters.Add(param);
+                var src = comm.ExecuteReader();
+                if (src.Read()) Session["email"] = src.GetValue(0).ToString();
             }
 
             con2.Close();

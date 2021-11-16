@@ -40,14 +40,15 @@ CREATE TABLE SharedReports(
 
 
 
-INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Animals Recovered from River','2021-05-27','WRIC News','Documenting the information related to an animal rescue that took place back in may. Several domesticated animals were located in a riverbed and show signs of neglect. The organization fears that this may be related to a number of reported mistreatments that have been observed in the local area.',1);
-INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Understanding Roosevelt','2020-11-03','VCU News','An important component of a democratic system is the impact that a government may have on its people during the most extreme and trying of times. It is important to remember a quote from Franklin Delano Roosevelt addressed to the nation, stating "the only thing we have to fear is fear itself".',1);
-INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Report on Wind Damages','2018-01-01','Local Weather','Trendlines show that with equivalent wind levels in the enviornment compared to damage sustained in that timeframe show that wind damages are accounting for an increased expenditure to clients as they suffer the impacts of a changing environment and an Earth showing how warmer times are more dangerous times.',1);
+INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Animals Recovered from River','2021-05-27','WRIC News','Documenting the information related to an animal rescue that took place back in may. Several domesticated animals were located in a riverbed and show signs of neglect. The organization fears that this may be related to a number of reported mistreatments that have been observed in the local area.',4);
+INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Understanding Roosevelt','2020-11-03','VCU News','An important component of a democratic system is the impact that a government may have on its people during the most extreme and trying of times. It is important to remember a quote from Franklin Delano Roosevelt addressed to the nation, stating "the only thing we have to fear is fear itself".',4);
+INSERT INTO Story (StoryTitle, StoryDate, StorySource, StoryText, UserID) VALUES ('Report on Wind Damages','2018-01-01','Local Weather','Trendlines show that with equivalent wind levels in the enviornment compared to damage sustained in that timeframe show that wind damages are accounting for an increased expenditure to clients as they suffer the impacts of a changing environment and an Earth showing how warmer times are more dangerous times.',2);
 
 USE [AUTH]
 
 DROP TABLE Pass
 DROP TABLE Person
+DROP TABLE Messenger
 
 CREATE TABLE Person(
 UserID int IDENTITY (1,1) NOT NULL,
@@ -65,8 +66,18 @@ Username varchar(30) NOT NULL,
 PasswordHash varchar(256) NOT NULL,
 PRIMARY KEY (UserID));
 
+CREATE TABLE Messenger(
+ID BIGINT PRIMARY KEY IDENTITY,
+Body NVARCHAR(MAX) NOT NULL,
+Created DATETIME NOT NULL,
+CreatedBy BIGINT NOT NULL,
+ToUserID BIGINT NOT NULL,
+IsRead BIT NOT NULL,
+DateRead DATETIME,
+CreatedByUsername VARCHAR(20));
+
 INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
-VALUES ('AdminUser', 'cbowles201@gmail.com', 'Cullen', 'Bowles','James Madison University', 'Testing the Story Analyzer Program');
+VALUES ('AdminUser', 'saleh2mx@dukes.jmu.edu', 'Cullen', 'Bowles','James Madison University', 'Testing the Story Analyzer Program');
 INSERT INTO Person (Username, Email,FirstName, LastName, Organization, Reason)
 VALUES ('CatDog67', 'si1verArr0w@gmail.com','Duke', 'Wilson', 'Berkley Mid-Atlantic', 'Analyzing insurance reports for fraud');
 INSERT INTO Person (Username, Email, FirstName, LastName, Organization, Reason)
