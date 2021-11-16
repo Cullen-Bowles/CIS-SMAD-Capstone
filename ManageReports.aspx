@@ -2,6 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+<%--    <div class="row">
+        <div class="col-7">
+
+        </div>
+        <div class="col-5">
+
+        </div>
+    </div>--%>
+    
+
     <div class="row mt-2">
         <div class="col-4">
             <asp:Label ID="lblSelectAnalysis" runat="server" Text="Select Analysis:"></asp:Label>
@@ -10,7 +21,7 @@
             <asp:DropDownList ID="ddlSAList" CssClass="form-control" runat="server"></asp:DropDownList>                        
         </div>
          <div class="col-4">
-            <asp:Button ID="btnMakeRequest" CssClass="btn btn-success" runat="server" Text="Make Analysis Request" OnClick="btnMakeRequest_Click" />
+            
         </div>
     </div>
     <div class="row mt-2">
@@ -26,6 +37,15 @@
             </asp:DropDownList>
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-4">
+            
+        </div>
+        <div class="col-8">
+            <asp:Button ID="btnMakeRequest" CssClass="btn btn-success" runat="server" Text="Get Analysis Extract" OnClick="btnMakeRequest_Click" />
+        </div>
+    </div>
+    <hr/>
     <div class="row mt-2">
         <div class="col-4">
             <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: "></asp:Label>
@@ -54,15 +74,55 @@
         <div class="col-4">
             <asp:Label ID="lblstorytext" runat="server" Text="Report: "></asp:Label>
         </div>
-        <div class="col-8">
-            <asp:TextBox ID="txtstorytext" CssClass="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+        <div class="col-4">
+            <asp:TextBox ID="txtstorytext" Width="100%" CssClass="form-control" Rows="5" TextMode="MultiLine" runat="server" ReadOnly="true"></asp:TextBox>
+        </div>
+        <div class="col-4">
+            <span>Sentence to Edit</span>
+            <asp:TextBox ID="txtSentence" Width="100%" CssClass="form-control" Rows="5" TextMode="MultiLine" runat="server" ReadOnly="true"></asp:TextBox>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-4">
-            <asp:Button ID="btnPUTedit" runat="server" Text="Confirm Edit" CssClass="btn btn-primary" OnClick="btnPUTedit_Click"/>
+            <asp:Label ID="lblExtracts" runat="server" Text="Extracts: "></asp:Label>
         </div>
-        <div class="col-8"><asp:Label ID="lblPostResponseMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" Font-Size="X-Large"></asp:Label></div>
+        <div class="col-8">
+            <asp:DropDownList runat="server" AutoPostBack="True" CssClass="form-control" ID="ddlSentences" OnSelectedIndexChanged="ddlSentences_OnSelectedIndexChanged"/>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-4">
+            <asp:Label ID="Label1" runat="server" Text="Extracts: "></asp:Label>
+        </div>
+        <div class="col-4">
+            <asp:DropDownList runat="server" CssClass="form-control" ID="ddlTokens"/>
+        </div>
+        <div class="col-4">
+            <asp:TextBox runat="server" CssClass="form-control" ID="tokenEdit" placeholder="enter token edit here..."></asp:TextBox>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-4">
+            
+        </div>
+        
+        <div class="col-8">
+            <asp:Button ID="btnPUTedit" runat="server" Text="Save Changes" CssClass="btn btn-primary" OnClick="btnPUTedit_Click"/>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-4">
+            
+        </div>
+        
+        <div class="col-8">
+            <asp:Label ID="lblPostResponseMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" Font-Size="X-Large"></asp:Label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <asp:Literal runat="server" ID="JsonViewPre"></asp:Literal>
+        </div>
     </div>
 
    <%-- <div class="row mt-2">

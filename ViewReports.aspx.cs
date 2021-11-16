@@ -7,6 +7,7 @@
     using System.Web.Configuration;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using Models;
 
     public partial class ViewReports : Page
     {
@@ -105,6 +106,9 @@
             // Use the selected command from Dr. Mitri's SA REST API
             // to retrieve results from the SA Server.
 
+            displayViz.InnerHtml = string.Empty;
+            txtDisplay.Text = string.Empty;
+
             var URL = "http://saworker.storyanalyzer.org/saresults.php?"
                       + ddlSAList.SelectedValue
                       + "&request="
@@ -118,18 +122,34 @@
             //  or it could be HTML (to show a visualization)
             if (ddlRequest.SelectedIndex >= 0 && ddlRequest.SelectedIndex <= 3)
                 // The result is plain text: A URL for the source for example or story title.
+            {
                 txtDisplay.Text = response;
+            }
             else if (ddlRequest.SelectedValue.Equals("showbootstrapdashboard"))
                 // Here the user has selected to show the bootstrap dashboard.
                 // We will open the URL for the dashboard in a new tab.
+            {
                 Page.ClientScript.RegisterStartupScript(GetType(), "OpenWindow",
                     "window.open('" + URL + "','_newtab');", true);
+            }
             //Response.Redirect(URL);
             else
+            {
                 // The results are HRML for a visualization. I'll replace the contents
                 // of a DIV on the ASP.net form with the results
                 // This will dynamically update the HTML page.
                 displayViz.InnerHtml = response;
+
+                // test the objects
+                //var result = JsonConvert.DeserializeObject<LineExtract>(response);
+                //var myDeserializedClass = JsonConvert.DeserializeObject<Extract[]>(response);
+                var myStuff = Root.FromJson(response);
+
+                // TODO: take the object, put the sentences into a dropdown with sentenceNbr/sentence
+                //      then on select, fill second dropdown with tokens  #/token
+                //      text box for new value
+                //      submit build the setsentence request command
+            }
         }
     }
 }
