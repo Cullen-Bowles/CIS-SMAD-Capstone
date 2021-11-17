@@ -123,6 +123,24 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.TextBox txtSentence;
 
         /// <summary>
+        /// lbleditBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbleditBy;
+
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+
+        /// <summary>
         /// lblExtracts control.
         /// </summary>
         /// <remarks>
@@ -141,13 +159,13 @@ namespace WebApplication4
         protected global::System.Web.UI.WebControls.DropDownList ddlSentences;
 
         /// <summary>
-        /// Label1 control.
+        /// lbledit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lbledit;
 
         /// <summary>
         /// ddlTokens control.

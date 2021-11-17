@@ -23,15 +23,16 @@
                         <asp:ListItem Text="Get Source" value="getsource"></asp:ListItem>
                         <asp:ListItem Text="Get People" value="getpeople"></asp:ListItem>
                         <asp:ListItem Text="Get Places" value="getplaces"></asp:ListItem>
-                        <asp:ListItem Text="Get the Interactions Chord" value="getvisinteractionschord"></asp:ListItem>
-                        <asp:ListItem Text="Get the Narrative Web" value="getvisnarrativeweb"></asp:ListItem>
-                        <asp:ListItem Text="Get the Wordcloud of Subjects" value="getviswordcloud-subjects"></asp:ListItem>
-                        <asp:ListItem Text="Get the Wordcloud of Places" value="getviswordcloud-places"></asp:ListItem>
-                        <asp:ListItem Text="Get the Wordcloud of People" value="getviswordcloud-people"></asp:ListItem>
-                        <asp:ListItem Text="Get the Wordcloud of groups" value="getviswordcloud-groups"></asp:ListItem>
+
+                        <asp:ListItem Text="Get The Interactions Chord" value="getvisinteractionschord-displayViz"></asp:ListItem>
+                        <asp:ListItem Text="Get the Narrative Web" value="getvisnarrativeweb-displayViz"></asp:ListItem>
+                        <asp:ListItem Text="Get the Wordcloud for Subjects" value="getviswordcloud-subjects-displayViz"></asp:ListItem>
+                        <asp:ListItem Text="Get the Wordcloud for Places" value="getviswordcloud-places-displayViz"></asp:ListItem>
+                        <asp:ListItem Text="Get the wordcloud for People" value="getviswordcloud-people-displayViz"></asp:ListItem>
+                        <asp:ListItem Text="Get the Wordcloud for Groups" value="getviswordcloud-groups-displayViz"></asp:ListItem>
                         <asp:ListItem Text="Get Sentence Details" value="getsentencedetails"></asp:ListItem>
-                        <asp:ListItem Text="Get Google Maps Locations" value="getvisgooglemap"></asp:ListItem>
-                        <asp:ListItem Text="Get Timeline" value="getvistimeline"></asp:ListItem>
+                        <asp:ListItem Text="Get the Locations on Google Maps" value="getvisgooglemap-displayViz"></asp:ListItem>
+                        <asp:ListItem Text="Get the Timeline of Events" value="getvistimeline-displayViz"></asp:ListItem>
                         <asp:ListItem Text="Show Dashboard" value="showdashboard"></asp:ListItem>
                         <asp:ListItem Text="Show Formatted Dashboard" value="showbootstrapdashboard"></asp:ListItem>
 

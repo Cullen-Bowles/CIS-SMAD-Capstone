@@ -184,9 +184,10 @@
             var content = new FormUrlEncodedContent(putData);
             lblPostResponseMessage.Text = content.ToString();
             var response = hClient.PutAsync("http://saworker.storyanalyzer.org/saresults.php", content);
+            var deleteContent = hClient.GetAsync("http://saworker.storyanalyzer.org/saresults.php?uid="+Session["email"]+"&extractrequesttime=");
 
             var responseString = response.Result.StatusCode;
-            lblPostResponseMessage.Text =
+            lblPostResponseMessage.Text = /*responseString.ToString()*/
                 "Request has been sent. Check view reports in a few minutes to view the report.";
         }
 
@@ -206,6 +207,7 @@
 
             var tokens = extracts.Where(x => x.SentenceNbr.ToString() == sentenceNumber).Select(x => x.Tokens)
                 .FirstOrDefault();
+            //var ner = extracts.Where(x => x.SentenceNbr.ToString() == sentenceNumber).Select(x => x.Ner)
             if (tokens != null)
             {
                 // add placeholder
@@ -236,6 +238,11 @@
 
 
             return response3;
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
