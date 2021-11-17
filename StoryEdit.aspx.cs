@@ -115,15 +115,15 @@ namespace WebApplication4
             while (srd.Read())
             {
                 StoryTitleEntry.Text = srd.GetValue(0).ToString();
-                var storyDateTime = DateTime.Parse(srd.GetValue(1).ToString());
-                StoryDateEntry.Text = storyDateTime.ToShortDateString();
+                var storyDateTime = DateTime.Today.ToShortDateString();
+                StoryDateEntry.Text = storyDateTime;
                 StorySourceEntry.Text = srd.GetValue(2).ToString();
                 StoryTextEntry.Text = srd.GetValue(3).ToString();
             }
             srd.Close();
             con.Close();
             StoryTitleEntry.ReadOnly = false;
-            StoryDateEntry.ReadOnly = false;
+            
             StorySourceEntry.ReadOnly = false;
             StoryTextEntry.ReadOnly = false;
         }

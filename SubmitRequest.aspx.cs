@@ -156,7 +156,7 @@
             var postData = new Dictionary<string, string>();
 
             // These three 
-            postData.Add("uid", txtEmail.Text); // User who owns this analysis
+            postData.Add("uid", Session["email"].ToString()); // User who owns this analysis
             postData.Add("extractrequesttime", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")); // Current Time and Date
             // Great website tutorial for DateTime Formatting: https://www.c-sharpcorner.com/blogs/date-and-time-format-in-c-sharp-programming1
             postData.Add("request", "saextract"); // The command we want to execute with POST - Should be "saextract"
