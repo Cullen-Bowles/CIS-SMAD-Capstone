@@ -19,6 +19,10 @@ namespace WebApplication4
                 Session["InvalidUsage"] = "Guests cannot access this page, Please sign in";
                 Response.Redirect("Login.aspx");
             }
+            if (!Page.IsPostBack)
+            {
+                StoryDateEntry.Text = DateTime.Today.ToString("u");
+            }
             
         }
         protected void Confirm_Click(object sender, EventArgs e)

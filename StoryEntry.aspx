@@ -33,7 +33,7 @@
                         <asp:Label ID="StoryDate" runat="server" Text="Story Submission Date:"></asp:Label>
                     </div>
                     <div class="col-9">
-                        <asp:TextBox ID="StoryDateEntry" runat="server" CssClass="form-control" AutoPostBack="false" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="StoryDateEntry" runat="server" CssClass="form-control" AutoPostBack="false" ReadOnly="true"></asp:TextBox>
 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="StoryDateEntry" ForeColor="Red" Text="Story Date Cannot be blank " BorderStyle="Solid" BorderWidth="2px"></asp:RequiredFieldValidator>
                         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ControlToValidate="StoryDateEntry" Text="Story Date must be in mm/dd/yyyy Format" Operator="DataTypeCheck" Type="Date" ForeColor="DarkRed" BorderStyle="Solid" BorderWidth="2px"></asp:CompareValidator>
