@@ -183,7 +183,7 @@
             var responseString = response.Result.StatusCode;
             //lblPostResponseMessage.Text += responseString.ToString() + " " + response.Result.ToString();
             lblPostResponseMessage.Text =
-                "Request has been sent. Check view reports in a few minutes to view the report.";
+                "Request has been sent. Check your email for confirmation that the analysis has been completed.";
         }
     }
 }

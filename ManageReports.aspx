@@ -82,6 +82,18 @@
             <asp:TextBox ID="txtSentence" Width="100%" CssClass="form-control" Rows="5" TextMode="MultiLine" runat="server" ReadOnly="true"></asp:TextBox>
         </div>
     </div>
+     <div class="row mt-2">
+        <div class="col-4">
+            <asp:Label ID="lbleditBy" runat="server" Text="Edit Extract By: "></asp:Label>
+        </div>
+        <div class="col-8">
+            <asp:DropDownList runat="server" AutoPostBack="True" CssClass="form-control" ID="DropDownList1" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:ListItem Text="Word/Token" Value="token" />
+                <asp:ListItem Text="Named Entity (People, Locations, etc." Value="ner" />
+                <asp:ListItem Text="Part of Speech" Value="pos" />
+            </asp:DropDownList>
+        </div>
+    </div>
     <div class="row mt-2">
         <div class="col-4">
             <asp:Label ID="lblExtracts" runat="server" Text="Extracts: "></asp:Label>
@@ -89,10 +101,10 @@
         <div class="col-8">
             <asp:DropDownList runat="server" AutoPostBack="True" CssClass="form-control" ID="ddlSentences" OnSelectedIndexChanged="ddlSentences_OnSelectedIndexChanged"/>
         </div>
-    </div>
+    </div>   
     <div class="row mt-2">
         <div class="col-4">
-            <asp:Label ID="Label1" runat="server" Text="Extracts: "></asp:Label>
+            <asp:Label ID="lbledit" runat="server" Text="Items to edit: "></asp:Label>
         </div>
         <div class="col-4">
             <asp:DropDownList runat="server" CssClass="form-control" ID="ddlTokens"/>
