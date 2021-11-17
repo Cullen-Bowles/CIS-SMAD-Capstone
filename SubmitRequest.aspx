@@ -36,10 +36,10 @@
             </strong>
         </div>
     </div>
-    <div class="row mb-1">
+    <%--<div class="row mb-1">
         <div class="col-4"><asp:Label ID="lblemail" runat="server" Text="User Email:"></asp:Label></div>
         <div class="col-8"><asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" Width="200" ReadOnly="true"></asp:TextBox></div>
-    </div>
+    </div>--%>
     <div class="row mb-1">
         <div class="col-4"><asp:Label ID="lblTitle" runat="server" Text="Story Title:"></asp:Label></div>
         <div class="col-8"><asp:TextBox ID="txtTitle" CssClass="form-control" runat="server" Width="200"></asp:TextBox></div>

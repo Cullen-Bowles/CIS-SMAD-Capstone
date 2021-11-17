@@ -6,7 +6,6 @@
     <div class="row">
         <div class="col-6">
             <div class="card">
-                <%--<form id="form1" runat="server">--%>
                 <div class="card-body">
                     <h2>View Your Report</h2>
                     <br />
@@ -24,6 +23,7 @@
                         <asp:ListItem Text="Get Source" value="getsource"></asp:ListItem>
                         <asp:ListItem Text="Get People" value="getpeople"></asp:ListItem>
                         <asp:ListItem Text="Get Places" value="getplaces"></asp:ListItem>
+
                         <asp:ListItem Text="Get The Interactions Chord" value="getvisinteractionschord-displayViz"></asp:ListItem>
                         <asp:ListItem Text="Get the Narrative Web" value="getvisnarrativeweb-displayViz"></asp:ListItem>
                         <asp:ListItem Text="Get the Wordcloud for Subjects" value="getviswordcloud-subjects-displayViz"></asp:ListItem>
@@ -40,34 +40,13 @@
                     <br />
                     <asp:Button ID="btnMakeRequest" CssClass="btn btn-success" runat="server" Text="Make Analysis Request" OnClick="btnMakeRequest_Click" />
                     <br />
-                    <asp:TextBox ID="txtDisplay" runat="server"  CssClass="form-control" Rows="15" Height="200" Width="400" TextMode="MultiLine"></asp:TextBox>
-                    <%--<input id="CallButton" name="CallButton" class="btn btn-warning" type="button" value="TEST" />--%>
-                    
+                    <asp:TextBox ID="txtDisplay" runat="server"  CssClass="form-control" Rows="15" Height="200" Width="400" TextMode="MultiLine"></asp:TextBox>                   
                 </div>
-                
-                <%--</form>--%>
             </div>
         </div>
         <div class="col-6">
             <div class="row">
-                <div runat="server" id="displayViz"></div>
-                
-                
-                <%--<div class="col">
-                    <h2>Edit Your Report</h2>
-                    <br />
-                    <br />
-                    <asp:Label ID="Label1" runat="server" Text="Choose Edit:"></asp:Label>
-                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
-                        <asp:ListItem Text="Set Title" value="settitle"></asp:ListItem>
-                        <asp:ListItem Text="Set Source" value="setsource"></asp:ListItem>
-                        <asp:ListItem Text="Set Tokens Detail" value="settokensdetail"></asp:ListItem>
-                        <asp:ListItem Text="Set Sendtence Details" value="setsentencedetails"></asp:ListItem>
-                        
-                        
-
-                    </asp:DropDownList>
-                </div>--%>
+                <div runat="server" id="displayViz"></div>                                        
             </div>
         </div>
     </div>
@@ -78,29 +57,4 @@
             </div>
         </div>
     </div>
-    
-    <%--<br />
-    <br />
-    <asp:DropDownList ID="ddlusersreports" runat="server" OnSelectedIndexChanged="ddlusersstories_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-    <br />
-    <br />
-    <asp:Label ID="lblstorytitle" runat="server" Text="Story Title: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtstorytile" runat="server" ReadOnly="true"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="lblstorydate" runat="server" Text="Date Submitted: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtsubmissiondate" runat="server" TextMode="Date"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="lblstorysource" runat="server" Text="Story Source: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtstorysource" runat="server" ReadOnly="true"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="lblstorytext" runat="server" Text="Report: " ForeColor="White"></asp:Label>
-    <asp:TextBox ID="txtstorytext" runat="server" ReadOnly="true"></asp:TextBox>
-    <br />
-    <br />--%>
-    
-
-    
 </asp:Content>
